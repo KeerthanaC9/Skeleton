@@ -15,7 +15,7 @@ public partial class _1Viewer : System.Web.UI.Page
         //get the data from the session object
         AStock = (clsStock)Session["AStock"];     
         //display the shoe id for this entry
-        Response.Write(AStock.ShoeId);
+        Response.Write(AStock.ShoeName);
         
       
 
