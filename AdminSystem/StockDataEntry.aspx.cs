@@ -19,8 +19,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create a new instance of clsStock
         clsStock AStock = new clsStock();
-        //capture the shoe id
-        AStock.ShoeId = Convert.ToInt32(txtShoeId.Text);
+        //capture the shoe Name
+        AStock.ShoeName = txtShoeName.Text;
         
         //store the address in the session object
         Session["AStock"] = AStock;
