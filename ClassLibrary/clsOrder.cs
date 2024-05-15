@@ -11,5 +11,6 @@ namespace ClassLibrary
         public int CustomerId { get; set; }
         public bool OrderDelivered { get; set; }
         public float TotalPrice { get; set; }
+        public DateTime OrderDate { get; set; }
     }
 }
