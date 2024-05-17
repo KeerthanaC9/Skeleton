@@ -11,6 +11,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        clsCustomer  AnCustomer = new clsCustomer();
+        AnCustomer = (clsCustomer)Session["AnCustomer"];
+        Response.Write(AnCustomer.customerName);
 
     }
 
