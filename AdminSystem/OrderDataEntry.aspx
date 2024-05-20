@@ -25,8 +25,17 @@
         <asp:Button ID="btnOK" runat="server" Text="OK" OnClick="btnOK_Click" style="z-index: 1; left: 80px; top: 339px; position: absolute" />
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 143px; top: 339px; position: absolute" Text="Cancel" />
         <p>
-            &nbsp;</p>
+            <asp:Button ID="btnFind" runat="server" Height="31px" OnClick="btnFind_Click" style="margin-left: 349px" Text="Find" Width="74px" />
+        </p>
         <asp:TextBox ID="txtTotalPrice" runat="server" style="z-index: 1; left: 171px; top: 185px; position: absolute; margin-bottom: 10px;" ></asp:TextBox>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
     </form>
 </body>
 </html>
