@@ -1,6 +1,8 @@
 ﻿using ClassLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text.RegularExpressions;
 
 namespace Testing1
 {
@@ -85,7 +87,58 @@ namespace Testing1
             Assert.AreEqual(AnCustomer.customerPhoneNumber, TestData);
         }
 
+
+
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance od the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //create a Boolean variable to store the result of the Validation
+            Boolean Found = false;
+            //Create some test Data to use with the method
+            int CustomerId = 7;
+            //invoke the method
+            Found = AnCustomer.Find(CustomerId);
+            //test to see if the result is true
+            Assert.IsTrue(Found);
+        }
+        public bool Find(int CustomerId)
+
+        {
+            throw new NotImplementedException();
+        }
+
+        [TestMethod]
+        public void TestCustomerIdFound()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            Boolean Found = false;
+            Boolean OK = true;
+            int CustomerId = 7;
+            Found = AnCustomer.Find(CustomerId);
+            if(AnCustomer.CustomerId != 7)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    }
     }
 
-
-}
