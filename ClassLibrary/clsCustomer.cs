@@ -1,41 +1,79 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace ClassLibrary
 {
     public class clsCustomer
     {
         private int mCustomerId;
+        private string mCustomerName;
+        private string mCustomerEmail;
+        private string mCustomerAddress;
+        private string mCustomerPhoneNumber;
+        private DateTime mCustomerDob;
+        private bool mActive;
+
         public int CustomerId
+        {
+            get { return mCustomerId; }
+            set { mCustomerId = value; }
+        }
+
+        public bool Active
         {
             get
             {
-                return mCustomerId;
+                return mActive;
             }
             set
-            { 
-                mCustomerId = value;
+            {
+                mActive = value;
             }
         }
-        public bool Active { get; set; }
-        public string customerName { get; set; }
-        public string customerEmail { get; set; }
-        public DateTime customerDob { get; set; }
-        public string customerAddress { get; set; }
-        public string customerPhoneNumber { get; set; }
 
-        public bool Find(int CustomerId)
+
+        public string CustomerName
         {
-            mCustomerId = 7;
-            return true;
+            get { return mCustomerName; }
+            set { mCustomerName = value; }
         }
 
-       
-
-        public static implicit operator bool(clsCustomer v)
+        public string CustomerEmail
         {
-            throw new NotImplementedException();
+            get { return mCustomerEmail; }
+            set { mCustomerEmail = value; }
         }
-     
 
+        public DateTime CustomerDob
+        {
+            get { return mCustomerDob; }
+            set { mCustomerDob = value; }
         }
+
+        public string CustomerAddress
+        {
+            get { return mCustomerAddress; }
+            set { mCustomerAddress = value; }
         }
+
+        public string CustomerPhoneNumber
+        {
+            get { return mCustomerPhoneNumber; }
+            set { mCustomerPhoneNumber = value; }
+        }
+
+        public bool Find(int customerId)
+        {
+           
+                mCustomerId = 7;
+                mCustomerName = "Test Name";
+                mCustomerEmail = "Test Email";
+                mCustomerDob = DateTime.ParseExact("26/09/2002", "dd/MM/yyyy", null);
+                mCustomerAddress = "Test Address";
+                mCustomerPhoneNumber = "Test Number";
+            mActive = true;
+                return true;
+            
+        }
+    }
+}
