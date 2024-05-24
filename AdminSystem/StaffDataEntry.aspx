@@ -7,6 +7,7 @@
     <title></title>
 </head>
 <body>
+    Thid is the staff entry page
     <form id="form1" runat="server">
         <div>
         </div>
