@@ -20,8 +20,6 @@ namespace ClassLibrary
         
     };
 
-        public bool Find(int orderId)
-        {
             // Search for the order with the given orderId
             var AnOrder = Orders.FirstOrDefault(o => o.OrderId == orderId);
             if (AnOrder != null)
