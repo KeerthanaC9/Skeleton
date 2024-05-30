@@ -36,14 +36,16 @@
         <asp:TextBox ID="txtCustomerAddress" runat="server" height="28px" width="152px"></asp:TextBox>
         <br />
         <br />
+        <asp:Label ID="lblError" runat="server"></asp:Label>
+        <br />
         <br />
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="width: 33px" Text="OK" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+        <asp:Button ID="btnCancel" runat="server" Text="Cancel"/>
         <br />
         <br />
         <br />
-        <asp:CheckBox ID="chkActive" runat="server" Text="Active" />
+       
     </form>
 </body>
 </html>

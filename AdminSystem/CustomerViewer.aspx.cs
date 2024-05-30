@@ -15,6 +15,11 @@ public partial class _1Viewer : System.Web.UI.Page
         //get the data from the session object
         AnCustomer = (clsCustomer)Session["Ancustomer"];
         //display the Name  for this entry
-        Response.Write(AnCustomer.customerName);
+        Response.Write(AnCustomer.CustomerName);
+        Response.Write(AnCustomer.CustomerEmail);
+        Response.Write(AnCustomer.CustomerPhoneNumber);
+        Response.Write(AnCustomer.CustomerAddress);
+        Response.Write(AnCustomer.CustomerDob);
     }
+
 }

@@ -11,24 +11,12 @@ namespace ClassLibrary
         private string mCustomerAddress;
         private string mCustomerPhoneNumber;
         private DateTime mCustomerDob;
-        private bool mActive;
+      
 
         public int CustomerId
         {
             get { return mCustomerId; }
             set { mCustomerId = value; }
-        }
-
-        public bool Active
-        {
-            get
-            {
-                return mActive;
-            }
-            set
-            {
-                mActive = value;
-            }
         }
 
 
@@ -68,12 +56,17 @@ namespace ClassLibrary
                 mCustomerId = 7;
                 mCustomerName = "Test Name";
                 mCustomerEmail = "Test Email";
-                mCustomerDob = DateTime.ParseExact("26/09/2002", "dd/MM/yyyy", null);
+                mCustomerDob = DateTime.ParseExact("26/09/2002", "dd/mm/yyyy", null);
                 mCustomerAddress = "Test Address";
                 mCustomerPhoneNumber = "Test Number";
-            mActive = true;
+            
                 return true;
             
+        }
+
+        public string Valid(string customerName, string customerEmail, string customerDob, string customerPhoneNumber, string customerAddress)
+        {
+            return "";
         }
     }
 }
