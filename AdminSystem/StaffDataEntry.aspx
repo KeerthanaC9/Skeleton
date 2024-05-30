@@ -14,6 +14,7 @@
         <asp:TextBox ID="txtStaffID" runat="server" style="z-index: 1; left: 132px; top: 34px; position: absolute"></asp:TextBox>
         <asp:TextBox ID="txtStaffName" runat="server" style="z-index: 1; left: 132px; top: 74px; position: absolute"></asp:TextBox>
         <asp:Label ID="lblStaffName" runat="server" style="z-index: 1; left: 10px; top: 74px; position: absolute" Text="Staff Name" width="79px"></asp:Label>
+        <asp:Button ID="btnFind" style="z-index: 1; left: 376px; top: 34px; position: absolute" runat="server" Text="Find" OnClick="btnFind_Click" />
         <asp:Label ID="lblStaffRole" runat="server" style="z-index: 1; left: 10px; top: 114px; position: absolute" Text="Staff Role" width="79px"></asp:Label>
         <asp:TextBox ID="txtStaffRole" runat="server" style="z-index: 1; left: 132px; top: 114px; position: absolute"></asp:TextBox>
         <asp:Label ID="lblStaffSalary" runat="server" style="z-index: 1; left: 10px; top: 154px; position: absolute" Text="Staff Salary" width="79px"></asp:Label>

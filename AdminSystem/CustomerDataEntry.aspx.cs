@@ -13,7 +13,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         clsCustomer  AnCustomer = new clsCustomer();
         AnCustomer = (clsCustomer)Session["AnCustomer"];
-        Response.Write(AnCustomer.customerName);
+        Response.Write(AnCustomer.CustomerName);
 
     }
 
@@ -27,7 +27,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //create a new instance of clsCustomer
         clsCustomer AnCustomer = new clsCustomer();
         //capture the name
-        AnCustomer.customerName = txtCustomerName.Text;
+        AnCustomer.CustomerName = txtCustomerName.Text;
         //store the address in the session object
         Session["AnCustomer"] = AnCustomer;
         //navigate to the view page

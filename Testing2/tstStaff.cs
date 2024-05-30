@@ -7,6 +7,15 @@ namespace Testing2
     [TestClass]
     public class tstStaff
     {
+
+        //good test data
+        //create some test data to pass the method
+        string StaffSalary = "26000";
+        string StaffJobTitle = "Test Job";
+        string StaffRole = "Test Role";
+        string StaffName = "Test Name";
+        string DateJoined = DateTime.Now.ToShortDateString();
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -126,7 +135,7 @@ namespace Testing2
             //invoke the method
             Found = AStaff.Find(StaffId);
             //check the staff id
-            if (AStaff.DateJoined != Convert.ToDateTime("29/05/2024"))
+            if (AStaff.DateJoined != Convert.ToDateTime("03/05/2024"))
             {
                 OK = false;
             }
@@ -149,7 +158,7 @@ namespace Testing2
             //invoke the method
             Found = AStaff.Find(StaffId);
             //check the staff id
-            if (AStaff.StaffName != "Test Name")
+            if (AStaff.StaffName != "Adebayo")
             {
                 OK = false;
             }
@@ -172,7 +181,7 @@ namespace Testing2
             //invoke the method
             Found = AStaff.Find(StaffId);
             //check the staff id
-            if (AStaff.StaffRole != "Test Role")
+            if (AStaff.StaffRole != "Administrator")
             {
                 OK = false;
             }
@@ -195,7 +204,7 @@ namespace Testing2
             //invoke the method
             Found = AStaff.Find(StaffId);
             //check the staff id
-            if (AStaff.StaffSalary != 26000)
+            if (AStaff.StaffSalary != 260000)
             {
                 OK = false;
             }
@@ -218,13 +227,26 @@ namespace Testing2
             //invoke the method
             Found = AStaff.Find(StaffId);
             //check the staff id
-            if (AStaff.StaffJobTitle != "Test Job")
+            if (AStaff.StaffJobTitle != "Software Engineer")
             {
                 OK = false;
             }
             //test to see that the result is correct
             Assert.IsTrue(OK);
 
+        }
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //invoke the method
+            Error = AStaff.Valid(StaffSalary, StaffJobTitle, StaffName, StaffRole, DateJoined);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
         }
 
     }
