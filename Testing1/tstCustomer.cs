@@ -7,6 +7,13 @@ namespace Testing1
     [TestClass]
     public class tstCustomer
     {
+        //good test data
+        //create some test data to pass the method
+        string CustomerName = "Yahya";
+        string CustomerEmail = "Y@gmail.com";
+        string CustomerPhoneNumber = "07853877654";
+        string CustomerAddress = "17 Happy Lane";
+        string CustomerDob = "12/03/2004";
         [TestMethod]
         public void InstanceOK()
         {
@@ -16,18 +23,6 @@ namespace Testing1
             Assert.IsNotNull(AnCustomer);
         }
 
-        [TestMethod]
-        public void ActivePropertyOK()
-        {
-            //create an instance of the class we want to create 
-            clsCustomer AnCustomer = new clsCustomer();
-            //create some test data to assign to the property
-            Boolean TestData = true;
-            //assign the data to the property
-            AnCustomer.Active = TestData;
-            // test to see that the two values are the same
-            Assert.AreEqual(AnCustomer.Active, TestData);
-        }
 
         [TestMethod]
         public void CustomerIdPropertyOK()
@@ -183,21 +178,17 @@ namespace Testing1
             Assert.IsTrue(OK);
         }
 
+
+
+
         [TestMethod]
-        public void TestActiveFound()
+        public void ValidMethodOK()
         {
             clsCustomer AnCustomer = new clsCustomer();
-            Boolean Found = false;
-            Boolean OK = true;
-            int CustomerId = 7;
-            Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.Active != true)
-            {
-                OK = false;
-            }
-            Assert.IsTrue(OK);
+            String Error = "";
+            Error = AnCustomer.Valid(CustomerName, CustomerEmail, CustomerDob, CustomerPhoneNumber, CustomerAddress);
+            Assert.AreEqual(Error, "");
         }
-
     }
 }
 
