@@ -43,7 +43,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //get the primary key entered by the user 
         OrderId = Convert.ToInt32(txtOrderId.Text);
         //find the record 
-        Found = AnOrder.Find(OrderId);
+//        Found = AnOrder.Find(OrderId);
         //if found
         if (Found == true)
         {

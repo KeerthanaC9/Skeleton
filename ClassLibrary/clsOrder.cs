@@ -21,22 +21,22 @@ namespace ClassLibrary
     };
 
             // Search for the order with the given orderId
-            var AnOrder = Orders.FirstOrDefault(o => o.OrderId == orderId);
-            if (AnOrder != null)
-            {
+            //var AnOrder = Orders.FirstOrDefault(o => o.OrderId == orderId);
+            //if (AnOrder != null)
+            //{
                 // If found, copy properties to the current instance
-                this.OrderId = AnOrder.OrderId;
-                this.CustomerId = AnOrder.CustomerId;
-                this.OrderDate = AnOrder.OrderDate;
-                this.ProductId = AnOrder.ProductId;
-                this.TotalPrice = AnOrder.TotalPrice;
-                this.Active = AnOrder.Active;
-                this.OrderDelivered = AnOrder.OrderDelivered;
-                return true;
+              //  this.OrderId = AnOrder.OrderId;
+                ///this.CustomerId = AnOrder.CustomerId;
+                //this.OrderDate = AnOrder.OrderDate;
+                //this.ProductId = AnOrder.ProductId;
+                //this.TotalPrice = AnOrder.TotalPrice;
+                //this.Active = AnOrder.Active;
+                //this.OrderDelivered = AnOrder.OrderDelivered;
+                //return true;
             }
-            return false;
+            //return false;
         }
-    }
+    //}
 
     public class ClsOrder
         {
@@ -196,4 +196,4 @@ namespace ClassLibrary
                 }
             }
         }
-    }
+    //}

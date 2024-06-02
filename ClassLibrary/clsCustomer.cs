@@ -11,14 +11,12 @@ namespace ClassLibrary
         private string mCustomerAddress;
         private string mCustomerPhoneNumber;
         private DateTime mCustomerDob;
-      
 
         public int CustomerId
         {
             get { return mCustomerId; }
             set { mCustomerId = value; }
         }
-
 
         public string CustomerName
         {
@@ -52,16 +50,14 @@ namespace ClassLibrary
 
         public bool Find(int customerId)
         {
-           
-                mCustomerId = 7;
-                mCustomerName = "Test Name";
-                mCustomerEmail = "Test Email";
-                mCustomerDob = DateTime.ParseExact("26/09/2002", "dd/mm/yyyy", null);
-                mCustomerAddress = "Test Address";
-                mCustomerPhoneNumber = "Test Number";
-            
-                return true;
-            
+            mCustomerId = 7;
+            mCustomerName = "Test Name";
+            mCustomerEmail = "Test Email";
+            mCustomerDob = DateTime.ParseExact("26/09/2002", "dd/MM/yyyy", null);
+            mCustomerAddress = "Test Address";
+            mCustomerPhoneNumber = "Test Number";
+
+            return true;
         }
 
         public string Valid(string customerName, string customerEmail, string customerDob, string customerPhoneNumber, string customerAddress)
