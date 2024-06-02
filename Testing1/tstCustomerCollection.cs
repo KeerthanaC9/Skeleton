@@ -31,7 +31,7 @@ namespace Testing1
             AllCustomers.CustomerList = TestList;
             Assert.AreEqual(AllCustomers.CustomerList, TestList);
         }
-       
+
         [TestMethod]
         public void ThisCustomerPropertyOK()
         {
@@ -63,8 +63,8 @@ namespace Testing1
             AllCustomers.CustomerList = TestList;
             Assert.AreEqual(AllCustomers.CustomerList, TestList);
         }
-        
-    } }
+
+    }
+}
 
 
-   

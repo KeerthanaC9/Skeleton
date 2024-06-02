@@ -5,12 +5,12 @@ namespace ClassLibrary
 {
     public class clsCustomerCollection
     {
-        
+
         public clsCustomerCollection()
         {
-            
-            
-     
+
+
+
             clsCustomer TestItem = new clsCustomer();
             TestItem.CustomerId = 1;
             TestItem.CustomerName = "Andrew";
@@ -31,16 +31,18 @@ namespace ClassLibrary
 
         }
         List<clsCustomer> mCustomerList = new List<clsCustomer>();
-        public List<clsCustomer> CustomerList { 
-            
-            get {return mCustomerList;}
-            
-            set {mCustomerList = value;}
+        public List<clsCustomer> CustomerList
+        {
+
+            get { return mCustomerList; }
+
+            set { mCustomerList = value; }
         }
 
-        public int Count {
+        public int Count
+        {
 
-            get {return mCustomerList.Count; }
+            get { return mCustomerList.Count; }
 
             set { }
         }
