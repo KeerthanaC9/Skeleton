@@ -1,41 +1,5 @@
-﻿using ClassLibrary;
-using System;
-using Testing1;
-
-CUSTOMERLIST.ASPX.CS *
-    using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿
 using ClassLibrary;
-
-
-public partial class _1_List : System.Web.UI.Page
-{
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        if (IsPostBack == false)
-        {
-            DisplayCustomers();
-        }
-    }
-
-    void DisplayCustomers()
-    {
-        clsCustomerCollection Customers = new clsCustomerCollection();
-        lstCustomerList.DataSource = Customers.CustomerList;
-        lstCustomerList.DataTextField = "CustomerName";
-        lstCustomerList.DataTextField = "CustomerEmail";
-        lstCustomerList.DataTextField = "CustomerAddress";
-        lstCustomerList.DataTextField = "CustomerDob";
-        lstCustomerList.DataBind();
-
-
-    }
-}
-TSTCUSTOMER.CS*using ClassLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
