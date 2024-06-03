@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-
 namespace ClassLibrary
 {
     public class clsCustomerCollection
@@ -13,9 +12,34 @@ namespace ClassLibrary
         // Constructor
         public clsCustomerCollection()
         {
-          
+            // Initialize database connection and fetch records
+            clsDataConnection DB = new clsDataConnection();
+            DB.Execute("sproc_tblCustomer_SelectAll");
+            Int32 RecordCount = DB.Count;
+            Int32 Index = 0;
 
-           
+            while (Index < RecordCount)
+            {
+                // Create a new customer object
+                clsCustomer AnCustomer = new clsCustomer();
+
+                // Populate the customer object with data from the database
+                AnCustomer.CustomerId = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerId"]);
+                AnCustomer.CustomerName = Convert.ToString(DB.DataTable.Rows[Index]["CustomerName"]);
+                AnCustomer.CustomerEmail = Convert.ToString(DB.DataTable.Rows[Index]["CustomerEmail"]);
+                AnCustomer.CustomerDob = Convert.ToDateTime(DB.DataTable.Rows[Index]["CustomerDob"]);
+                AnCustomer.CustomerPhoneNumber = Convert.ToString(DB.DataTable.Rows[Index]["CustomerPhoneNumber"]);
+                AnCustomer.CustomerAddress = Convert.ToString(DB.DataTable.Rows[Index]["CustomerAddress"]);
+
+                // Add the customer object to the list
+                mCustomerList.Add(AnCustomer);
+
+                // Move to the next record
+                Index++;
+            }
+
+            // Optionally add test data here, but this should be removed in production
+            AddTestData();
         }
 
         // Property to access the customer list
