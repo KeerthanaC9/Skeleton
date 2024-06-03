@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace ClassLibrary
 {
     public class clsCustomerCollection
-    {
+    { 
         // Declare the list and the current customer
         List<clsCustomer> mCustomerList = new List<clsCustomer>();
         clsCustomer mThisCustomer = new clsCustomer();
