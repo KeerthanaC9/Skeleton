@@ -8,9 +8,36 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    Int32 StaffID;
     protected void Page_Load(object sender, EventArgs e)
     {
+        //get the number of the address to be processed
+        StaffID = Convert.ToInt32(Session["StaffID"]);
+        if (IsPostBack == false)
+        {
+            //if this is the not a new record
+            if (StaffID != -1)
+            {
+                //display the current data for the record
+                DisplayStaff();
+            }
+        }
 
+    }
+
+    void DisplayStaff()
+    {
+        //create an instance of the staff
+        clsStaffCollection StaffCollection = new clsStaffCollection();
+        //find the record to update
+        StaffCollection.ThisStaff.Find(StaffID);
+        //display the data for the record
+        txtDateJoined.Text = StaffCollection.ThisStaff.DateJoined.ToString();
+        txtStaffID.Text = StaffCollection.ThisStaff.StaffID.ToString();
+        txtStaffJobTitle.Text = StaffCollection.ThisStaff.StaffJobTitle.ToString();
+        txtStaffName.Text = StaffCollection.ThisStaff.StaffName.ToString();
+        txtStaffRole.Text = StaffCollection.ThisStaff.StaffRole.ToString();
+        txtStaffSalary.Text = StaffCollection.ThisStaff.StaffSalary.ToString();
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
@@ -34,6 +61,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = AStaff.Valid(staffSalary, staffJobTitle, staffName, staffRole, dateJoined);
         if (Error == "")
         {
+            //capture the staff id
+            AStaff.StaffID = StaffID;
             //capture the staff name
             AStaff.StaffName = staffName;
             //capture the staff role
@@ -44,10 +73,27 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AStaff.StaffJobTitle = staffJobTitle;
             //capture the date joined
             AStaff.DateJoined = Convert.ToDateTime(dateJoined);
-            //store the staff in the session object
-            Session["AStaff"] = AStaff;
-            //navigate to the view page
-            Response.Redirect("StaffViewer.aspx");
+            //create a new instance of the staff collection
+            clsStaffCollection StaffList = new clsStaffCollection();
+            if (StaffID == -1)
+            {
+                //set the ThisStaff property
+                StaffList.ThisStaff = AStaff;
+                //add the new record
+                StaffList.Add();
+            }
+            //otherwise it must be an update
+            else
+            {
+                //find the record to update
+                StaffList.ThisStaff.Find(StaffID);
+                //set the ThisStaff property
+                StaffList.ThisStaff = AStaff;
+                //update the record
+                StaffList.Update();
+            }
+            //redirect back to the list page
+            Response.Redirect("StaffList.aspx");
         }
         else
         {

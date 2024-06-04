@@ -5,6 +5,8 @@ namespace ClassLibrary
 {
     public class clsStaffCollection
     {
+        //private data member for thisStaff
+        clsStaff mThisStaff = new clsStaff();
         //constructor for the class
         public clsStaffCollection() 
         {
@@ -53,7 +55,19 @@ namespace ClassLibrary
                 mStaffList = value;
             }
         }
-        public clsStaff ThisStaff { get; set; }
+        public clsStaff ThisStaff 
+        {
+            get
+            {
+                //return the private data
+                return mThisStaff;
+            }
+            set
+            {
+                //set the private data
+                mThisStaff = value;
+            }
+        }
         public int Count 
         {
             get
@@ -68,6 +82,47 @@ namespace ClassLibrary
             }
         }
 
+        public int Add()
+        {
+            //adds a record to the database based on the values of mThisStaff
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@StaffName", mThisStaff.StaffName);
+            DB.AddParameter("@StaffRole", mThisStaff.StaffRole);
+            DB.AddParameter("@DateJoined", mThisStaff.DateJoined);
+            DB.AddParameter("@StaffSalary", mThisStaff.StaffSalary);
+            DB.AddParameter("@StaffJobTitle", mThisStaff.StaffJobTitle);
 
+            //execute the query returning the primary key value
+            return DB.Execute("sproc_tblStaff_Insert");
+        }
+
+        public void Update()
+        {
+            //update an exisiting record based on the values of thisStaff
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the new stored procedure
+            DB.AddParameter("@StaffID", mThisStaff.StaffID);
+            DB.AddParameter("@StaffName", mThisStaff.StaffName);
+            DB.AddParameter("@StaffRole", mThisStaff.StaffRole);
+            DB.AddParameter("@StaffSalary", mThisStaff.StaffSalary);
+            DB.AddParameter("@StaffJobTitle", mThisStaff.StaffJobTitle);
+            DB.AddParameter("@DateJoined", mThisStaff.DateJoined);
+            //execute the storeed procedure
+            DB.Execute("sproc_tblStaff_Update");
+        }
+
+        public void Delete()
+        {
+            //deletes the record pointed to by thisStaff
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedurre
+            DB.AddParameter("@StaffID", mThisStaff.StaffID);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_Delete");
+        }
     }
 }

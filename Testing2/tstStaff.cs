@@ -135,7 +135,7 @@ namespace Testing2
             //invoke the method
             Found = AStaff.Find(StaffId);
             //check the staff id
-            if (AStaff.DateJoined != Convert.ToDateTime("03/05/2024"))
+            if (AStaff.DateJoined != Convert.ToDateTime("04/06/2024"))
             {
                 OK = false;
             }
@@ -158,7 +158,7 @@ namespace Testing2
             //invoke the method
             Found = AStaff.Find(StaffId);
             //check the staff id
-            if (AStaff.StaffName != "Adebayo")
+            if (AStaff.StaffName != "Adeola")
             {
                 OK = false;
             }
@@ -181,7 +181,7 @@ namespace Testing2
             //invoke the method
             Found = AStaff.Find(StaffId);
             //check the staff id
-            if (AStaff.StaffRole != "Administrator")
+            if (AStaff.StaffRole != "Staff")
             {
                 OK = false;
             }
@@ -204,7 +204,7 @@ namespace Testing2
             //invoke the method
             Found = AStaff.Find(StaffId);
             //check the staff id
-            if (AStaff.StaffSalary != 260000)
+            if (AStaff.StaffSalary != 400000)
             {
                 OK = false;
             }
@@ -227,7 +227,7 @@ namespace Testing2
             //invoke the method
             Found = AStaff.Find(StaffId);
             //check the staff id
-            if (AStaff.StaffJobTitle != "Software Engineer")
+            if (AStaff.StaffJobTitle != "Cyber Security")
             {
                 OK = false;
             }
