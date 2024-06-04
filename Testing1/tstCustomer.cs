@@ -85,7 +85,7 @@ namespace Testing1
         {
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
-            int CustomerId = 7;
+            int CustomerId = 3;
             Found = AnCustomer.Find(CustomerId);
             Assert.IsTrue(Found);
         }
@@ -96,9 +96,9 @@ namespace Testing1
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            int CustomerId = 7;
+            int CustomerId = 3;
             Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.CustomerId != 7)
+            if (AnCustomer.CustomerId != 3)
             {
                 OK = false;
             }
@@ -111,9 +111,9 @@ namespace Testing1
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            int CustomerId = 7;
+            int CustomerId = 3;
             Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.CustomerName != "Test Name")
+            if (AnCustomer.CustomerName != "JOHN SMITH")
             {
                 OK = false;
             }
@@ -126,9 +126,9 @@ namespace Testing1
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            int CustomerId = 21;
+            int CustomerId = 3;
             Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.CustomerEmail != "Test Email")
+            if (AnCustomer.CustomerEmail != "jsmith@gmail.com")
             {
                 OK = false;
             }
@@ -141,168 +141,14 @@ namespace Testing1
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            int CustomerId = 7;
+            int CustomerId = 3;
             Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.CustomerDob != Convert.ToDateTime("26/09/2002"))
+            if (AnCustomer.CustomerDob != Convert.ToDateTime("10/04/2004"))
             {
                 OK = false;
             }
             Assert.IsTrue(OK);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         [TestMethod]
@@ -311,9 +157,9 @@ namespace Testing1
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            int CustomerId = 7;
+            int CustomerId = 3;
             Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.CustomerAddress != "Test Address")
+            if (AnCustomer.CustomerAddress != "65 Apple Lane")
             {
                 OK = false;
             }
@@ -326,9 +172,9 @@ namespace Testing1
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            int CustomerId = 7;
+            int CustomerId = 3;
             Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.CustomerPhoneNumber != "Test Number")
+            if (AnCustomer.CustomerPhoneNumber != "07860988765")
             {
                 OK = false;
             }

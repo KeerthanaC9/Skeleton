@@ -41,19 +41,38 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnCustomer.CustomerDob = Convert.ToDateTime(CustomerDob);
             AnCustomer.CustomerPhoneNumber = CustomerPhoneNumber;
             AnCustomer.CustomerAddress = CustomerAddress;
+            clsCustomerCollection CustomerList = new clsCustomerCollection();
+            CustomerList.ThisCustomer = AnCustomer;
+            CustomerList.Add();
 
-
-            //store the address in the session object
-            Session["AnCustomer"] = AnCustomer;
-            //navigate to the view page
-            Response.Redirect("CustomerViewer.aspx");
+            Response.Redirect("CustomerList.aspx");
         }
         else
         {
             lblError.Text = Error;
         }
     }
-  
 
-    
+
+
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsCustomer AnCustomer = new clsCustomer();
+        Int32 CustomerId;
+        Boolean Found = false;
+        CustomerId = Convert.ToInt32(txtCustomerId.Text);
+        Found = AnCustomer.Find(CustomerId);
+        if (Found == true)
+        {
+            txtCustomerName.Text = AnCustomer.CustomerName;
+            txtCustomerEmail.Text = AnCustomer.CustomerEmail;
+            txtCustomerDob.Text = AnCustomer.CustomerDob.ToString();
+            txtCustomerPhoneNumber.Text = AnCustomer.CustomerPhoneNumber;
+            txtCustomerAddress.Text = AnCustomer.CustomerAddress;
+            
+
+
+        }
+    }
 }

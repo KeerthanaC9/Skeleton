@@ -23,10 +23,16 @@ public partial class _1_List : System.Web.UI.Page
         lstCustomerList.DataSource = Customers.CustomerList;
         lstCustomerList.DataTextField = "CustomerName";
         lstCustomerList.DataTextField = "CustomerEmail";
-        lstCustomerList.DataTextField = "CustomerAddress";
         lstCustomerList.DataTextField = "CustomerDob";
+        lstCustomerList.DataTextField = "CustomerAddress";
         lstCustomerList.DataBind();
 
 
+    }
+
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        Session["CustomerId"]= -1;
+        Response.Redirect("CustomerDataEntry.aspx");
     }
 }
