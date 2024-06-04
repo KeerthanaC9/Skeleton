@@ -80,8 +80,8 @@ namespace Testing1
             TestItem.CustomerId = PrimaryKey;
             AllCustomers.ThisCustomer.Find(PrimaryKey);
             Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
-        
-        
+
+
         }
     }
 }

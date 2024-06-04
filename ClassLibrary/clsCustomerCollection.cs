@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace ClassLibrary
 {
     public class clsCustomerCollection
-    { 
+    {
         // Declare the list and the current customer
         List<clsCustomer> mCustomerList = new List<clsCustomer>();
         clsCustomer mThisCustomer = new clsCustomer();
@@ -12,28 +12,23 @@ namespace ClassLibrary
         // Constructor
         public clsCustomerCollection()
         {
-            // Initialize database connection and fetch records
-         
-           
             Int32 Index = 0;
-
-    
+            Int32 RecordCount = 0;
+            clsDataConnection DB = new clsDataConnection();
+            DB.Execute("sproc_tblCustomer_SelectAll"); // Corrected stored procedure name
+            RecordCount = DB.Count;
+            while (Index < RecordCount)
             {
-                // Create a new customer object
                 clsCustomer AnCustomer = new clsCustomer();
-
-                // Populate the customer object with data from the database
-               
-
-                // Add the customer object to the list
+                AnCustomer.CustomerId = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerId"]);
+                AnCustomer.CustomerName = Convert.ToString(DB.DataTable.Rows[Index]["CustomerName"]);
+                AnCustomer.CustomerEmail = Convert.ToString(DB.DataTable.Rows[Index]["CustomerEmail"]);
+                AnCustomer.CustomerDob = Convert.ToDateTime(DB.DataTable.Rows[Index]["CustomerDob"]);
+                AnCustomer.CustomerPhoneNumber = Convert.ToString(DB.DataTable.Rows[Index]["CustomerPhoneNumber"]);
+                AnCustomer.CustomerAddress = Convert.ToString(DB.DataTable.Rows[Index]["CustomerAddress"]);
                 mCustomerList.Add(AnCustomer);
-
-                // Move to the next record
                 Index++;
             }
-
-            // Optionally add test data here, but this should be removed in production
-           
         }
 
         // Property to access the customer list
@@ -60,9 +55,17 @@ namespace ClassLibrary
         // Method to add a new customer (stub)
         public int Add()
         {
-            // Simulate adding a customer and returning a new ID
-            mThisCustomer.CustomerId = 123;
-            return mThisCustomer.CustomerId;
+            // Create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+
+            // Set the parameters for the stored procedure
+            DB.AddParameter("@CustomerName", mThisCustomer.CustomerName);
+            DB.AddParameter("@CustomerEmail", mThisCustomer.CustomerEmail);
+            DB.AddParameter("@CustomerDob", mThisCustomer.CustomerDob);
+            DB.AddParameter("@CustomerPhoneNumber", mThisCustomer.CustomerPhoneNumber);
+            DB.AddParameter("@CustomerAddress", mThisCustomer.CustomerAddress);
+
+            return DB.Execute("sproc_tblCustomer_Insert");
         }
 
         // Method to add test data for debugging purposes
@@ -85,6 +88,7 @@ namespace ClassLibrary
             TestItem.CustomerPhoneNumber = "07865900876";
             TestItem.CustomerAddress = "56 Hempsy Lane";
             mCustomerList.Add(TestItem);
+
         }
     }
 }
