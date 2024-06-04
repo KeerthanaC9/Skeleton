@@ -53,7 +53,7 @@ namespace ClassLibrary
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@CustomerId", CustomerId);
             DB.Execute("sproc_tblCustomer_FilterByCustomerId");
-            if(DB.Count == 1)
+            if (DB.Count == 1)
             {
                 mCustomerId = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerId"]);
                 mCustomerName = Convert.ToString(DB.DataTable.Rows[0]["CustomerName"]);
@@ -62,7 +62,7 @@ namespace ClassLibrary
                 mCustomerPhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["CustomerPhoneNumber"]);
                 mCustomerAddress = Convert.ToString(DB.DataTable.Rows[0]["CustomerAddress"]);
                 return true;
-                
+
             }
             else
             {

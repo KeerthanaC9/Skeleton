@@ -32,7 +32,7 @@ public partial class _1_List : System.Web.UI.Page
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
-        Session["CustomerId"]= -1;
+        Session["CustomerId"] = -1;
         Response.Redirect("CustomerDataEntry.aspx");
     }
 }

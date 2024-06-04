@@ -68,8 +68,8 @@ namespace ClassLibrary
             return DB.Execute("sproc_tblCustomer_Insert");
         }
 
-            // Method to add test data for debugging purposes
-            private void AddTestData()
+        // Method to add test data for debugging purposes
+        private void AddTestData()
         {
             clsCustomer TestItem = new clsCustomer();
             TestItem.CustomerId = 1;
@@ -89,6 +89,6 @@ namespace ClassLibrary
             TestItem.CustomerAddress = "56 Hempsy Lane";
             mCustomerList.Add(TestItem);
 
-         }
+        }
     }
 }

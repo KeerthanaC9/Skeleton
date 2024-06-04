@@ -12,7 +12,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-      
+
 
     }
 
@@ -31,9 +31,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string CustomerDob = txtCustomerDob.Text;
         string CustomerPhoneNumber = txtCustomerPhoneNumber.Text;
         string CustomerAddress = txtCustomerAddress.Text;
-        
+
         string Error = "";
-        Error = AnCustomer.Valid(CustomerName,CustomerEmail,CustomerDob, CustomerPhoneNumber, CustomerAddress);
+        Error = AnCustomer.Valid(CustomerName, CustomerEmail, CustomerDob, CustomerPhoneNumber, CustomerAddress);
         if (Error == "")
         {
             AnCustomer.CustomerName = CustomerName;
@@ -70,7 +70,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtCustomerDob.Text = AnCustomer.CustomerDob.ToString();
             txtCustomerPhoneNumber.Text = AnCustomer.CustomerPhoneNumber;
             txtCustomerAddress.Text = AnCustomer.CustomerAddress;
-            
+
 
 
         }
