@@ -149,7 +149,7 @@ namespace Testing1
             Assert.AreEqual(0, FilteredCustomers.Count);
         }
 
-      
+
 
         [TestMethod]
         public void ReportByCustomerEmailTestDataFound()
@@ -173,7 +173,7 @@ namespace Testing1
                 OK = false;
             }
             Assert.IsTrue(OK);
-            
+
         }
 
     }

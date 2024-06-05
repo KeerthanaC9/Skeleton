@@ -52,7 +52,7 @@ public partial class _1_List : System.Web.UI.Page
         {
             lblError.Text = "Please select a record from the list to edit";
         }
-        }
+    }
 
     protected void btnDelete_Click(object sender, EventArgs e)
     {

@@ -9,11 +9,11 @@ namespace ClassLibrary
         clsCustomer mThisCustomer = new clsCustomer();
 
         public clsCustomerCollection()
-        { 
-        clsDataConnection DB = new clsDataConnection();
-        DB.Execute("sproc_tblCustomer_SelectAll");
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.Execute("sproc_tblCustomer_SelectAll");
             PopulateArray(DB);
-         }
+        }
 
 
         public List<clsCustomer> CustomerList
@@ -72,7 +72,7 @@ namespace ClassLibrary
             PopulateArray(DB);
         }
 
-         void PopulateArray(clsDataConnection DB)
+        void PopulateArray(clsDataConnection DB)
         {
             Int32 Index = 0;
             Int32 RecordCount;
