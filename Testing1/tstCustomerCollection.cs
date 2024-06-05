@@ -90,7 +90,7 @@ namespace Testing1
             clsCustomer TestItem = new clsCustomer();
 
             Int32 PrimaryKey = 0;
-            TestItem.CustomerId = 1;
+            TestItem.CustomerId = 145;
             TestItem.CustomerName = "JOEY NEIL";
             TestItem.CustomerEmail = "JNeil@gmail.com";
             TestItem.CustomerDob = DateTime.ParseExact("26/09/2002", "dd/MM/yyyy", null);
@@ -100,7 +100,7 @@ namespace Testing1
             PrimaryKey = AllCustomers.Add();
             TestItem.CustomerId = PrimaryKey;
 
-            TestItem.CustomerId = 4;
+            TestItem.CustomerId = 147;
             TestItem.CustomerName = "JOEY NEIL";
             TestItem.CustomerEmail = "JNeil@gmail.com";
             TestItem.CustomerDob = DateTime.ParseExact("26/09/2002", "dd/MM/yyyy", null);
@@ -155,15 +155,15 @@ namespace Testing1
         public void ReportByCustomerEmailTestDataFound()
         {
             clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
-            Boolean OK = true;
-            FilteredCustomers.ReportByCustomerEmail("xxxxxxxxxxxxxx");
+            bool OK = true;
+            FilteredCustomers.ReportByCustomerEmail("xxx");
             if (FilteredCustomers.Count == 2)
             {
-                if (FilteredCustomers.CustomerList[0].CustomerId != 83)
+                if (FilteredCustomers.CustomerList[0].CustomerId != 149)
                 {
                     OK = false;
                 }
-                if (FilteredCustomers.CustomerList[1].CustomerId != 84)
+                if (FilteredCustomers.CustomerList[1].CustomerId !=150)
                 {
                     OK = false;
                 }
@@ -173,7 +173,6 @@ namespace Testing1
                 OK = false;
             }
             Assert.IsTrue(OK);
-
         }
 
     }

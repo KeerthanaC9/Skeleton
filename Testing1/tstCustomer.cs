@@ -30,7 +30,7 @@ namespace Testing1
         public void CustomerIdPropertyOK()
         {
             clsCustomer AnCustomer = new clsCustomer();
-            int TestData = 3;
+            int TestData = 143;
             AnCustomer.CustomerId = TestData;
             Assert.AreEqual(AnCustomer.CustomerId, TestData);
         }
@@ -39,7 +39,7 @@ namespace Testing1
         public void CustomerNamePropertyOK()
         {
             clsCustomer AnCustomer = new clsCustomer();
-            string TestData = "JOHN SMITH";
+            string TestData = "Daemon Targaryen";
             AnCustomer.CustomerName = TestData;
             Assert.AreEqual(AnCustomer.CustomerName, TestData);
         }
@@ -48,7 +48,7 @@ namespace Testing1
         public void CustomerEmailPropertyOK()
         {
             clsCustomer AnCustomer = new clsCustomer();
-            string TestData = "jsmith@gmail.com";
+            string TestData = "DTagaryen@gmail.com";
             AnCustomer.CustomerEmail = TestData;
             Assert.AreEqual(AnCustomer.CustomerEmail, TestData);
         }
@@ -57,7 +57,7 @@ namespace Testing1
         public void CustomerDobPropertyOK()
         {
             clsCustomer AnCustomer = new clsCustomer();
-            DateTime TestData = new DateTime(2004, 4, 10);
+            DateTime TestData = new DateTime(08 / 07 / 2004);
             AnCustomer.CustomerDob = TestData;
             Assert.AreEqual(AnCustomer.CustomerDob, TestData);
         }
@@ -66,7 +66,7 @@ namespace Testing1
         public void CustomerAddressPropertyOK()
         {
             clsCustomer AnCustomer = new clsCustomer();
-            string TestData = "65 Apple Lane";
+            string TestData = "13 Dragon Stone LE4 6JK";
             AnCustomer.CustomerAddress = TestData;
             Assert.AreEqual(AnCustomer.CustomerAddress, TestData);
         }
@@ -75,7 +75,7 @@ namespace Testing1
         public void CustomerPhoneNumberPropertyOK()
         {
             clsCustomer AnCustomer = new clsCustomer();
-            string TestData = "07865888665";
+            string TestData = "07692222768";
             AnCustomer.CustomerPhoneNumber = TestData;
             Assert.AreEqual(AnCustomer.CustomerPhoneNumber, TestData);
         }
@@ -85,7 +85,7 @@ namespace Testing1
         {
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
-            int CustomerId = 3;
+            int CustomerId = 143;
             Found = AnCustomer.Find(CustomerId);
             Assert.IsTrue(Found);
         }
@@ -96,9 +96,9 @@ namespace Testing1
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            int CustomerId = 3;
+            int CustomerId = 143;
             Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.CustomerId != 3)
+            if (AnCustomer.CustomerId != 143)
             {
                 OK = false;
             }
@@ -111,9 +111,9 @@ namespace Testing1
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            int CustomerId = 3;
+            int CustomerId = 143;
             Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.CustomerName != "JOHN SMITH")
+            if (AnCustomer.CustomerName != "Daemon Targaryen")
             {
                 OK = false;
             }
@@ -126,9 +126,9 @@ namespace Testing1
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            int CustomerId = 3;
+            int CustomerId = 143;
             Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.CustomerEmail != "jsmith@gmail.com")
+            if (AnCustomer.CustomerEmail != "DTagaryen@gmail.com")
             {
                 OK = false;
             }
@@ -141,9 +141,9 @@ namespace Testing1
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            int CustomerId = 3;
+            int CustomerId = 143;
             Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.CustomerDob != Convert.ToDateTime("10/04/2004"))
+            if (AnCustomer.CustomerDob != Convert.ToDateTime("08/07/2004"))
             {
                 OK = false;
             }
@@ -157,9 +157,9 @@ namespace Testing1
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            int CustomerId = 3;
+            int CustomerId = 143;
             Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.CustomerAddress != "65 Apple Lane")
+            if (AnCustomer.CustomerAddress != "13 Dragon Stone LE4 6JK")
             {
                 OK = false;
             }
@@ -172,9 +172,9 @@ namespace Testing1
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            int CustomerId = 3;
+            int CustomerId = 143;
             Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.CustomerPhoneNumber != "07860988765")
+            if (AnCustomer.CustomerPhoneNumber != "07692222768")
             {
                 OK = false;
             }

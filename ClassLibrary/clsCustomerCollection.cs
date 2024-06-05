@@ -5,8 +5,8 @@ namespace ClassLibrary
 {
     public class clsCustomerCollection
     {
-        List<clsCustomer> mCustomerList = new List<clsCustomer>();
-        clsCustomer mThisCustomer = new clsCustomer();
+        private List<clsCustomer> mCustomerList = new List<clsCustomer>();
+        private clsCustomer mThisCustomer = new clsCustomer();
 
         public clsCustomerCollection()
         {
@@ -14,7 +14,6 @@ namespace ClassLibrary
             DB.Execute("sproc_tblCustomer_SelectAll");
             PopulateArray(DB);
         }
-
 
         public List<clsCustomer> CustomerList
         {
@@ -48,7 +47,7 @@ namespace ClassLibrary
         public void Delete()
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("CustomerId", mThisCustomer.CustomerId);
+            DB.AddParameter("@CustomerId", mThisCustomer.CustomerId);
             DB.Execute("sproc_tblCustomer_Delete");
         }
 
@@ -72,12 +71,12 @@ namespace ClassLibrary
             PopulateArray(DB);
         }
 
-        void PopulateArray(clsDataConnection DB)
+        private void PopulateArray(clsDataConnection DB)
         {
-            Int32 Index = 0;
-            Int32 RecordCount;
-            RecordCount = DB.Count;
+            int Index = 0;
+            int RecordCount = DB.Count;
             mCustomerList = new List<clsCustomer>();
+
             while (Index < RecordCount)
             {
                 clsCustomer AnCustomer = new clsCustomer();
