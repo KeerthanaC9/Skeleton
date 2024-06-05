@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using ClassLibrary;
-
+﻿using ClassLibrary;
+using System;
 
 public partial class _1_List : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (IsPostBack == false)
+        if (!IsPostBack)
         {
             DisplayCustomers();
         }
@@ -21,14 +15,9 @@ public partial class _1_List : System.Web.UI.Page
     {
         clsCustomerCollection Customers = new clsCustomerCollection();
         lstCustomerList.DataSource = Customers.CustomerList;
-        lstCustomerList.DataTextField = "CustomerName";
+        lstCustomerList.DataValueField = "CustomerId";
         lstCustomerList.DataTextField = "CustomerEmail";
-        lstCustomerList.DataTextField = "CustomerDob";
-        lstCustomerList.DataTextField = "CustomerAddress";
-
         lstCustomerList.DataBind();
-
-
     }
 
     protected void btnAdd_Click(object sender, EventArgs e)
@@ -37,35 +26,33 @@ public partial class _1_List : System.Web.UI.Page
         Response.Redirect("CustomerDataEntry.aspx");
     }
 
-
     protected void btnEdit_Click(object sender, EventArgs e)
     {
-        Int32 CustomerId;
+        int CustomerId;
         if (lstCustomerList.SelectedIndex != -1)
-
         {
-            CustomerId = Convert.ToInt32(lstCustomerList.SelectedValue);
+             CustomerId = Convert.ToInt32(lstCustomerList.SelectedValue);
             Session["CustomerId"] = CustomerId;
             Response.Redirect("CustomerDataEntry.aspx");
         }
         else
         {
-            lblError.Text = "Please select a record from the list to edit";
+            lblError.Text = "Please select a record from the list to edit.";
         }
     }
 
     protected void btnDelete_Click(object sender, EventArgs e)
     {
-        Int32 CustomerId;
+        int CustomerId;
         if (lstCustomerList.SelectedIndex != -1)
         {
-            CustomerId = Convert.ToInt32(lstCustomerList.SelectedValue);
+             CustomerId = Convert.ToInt32(lstCustomerList.SelectedValue);
             Session["CustomerId"] = CustomerId;
             Response.Redirect("CustomerConfirmDelete.aspx");
         }
         else
         {
-            lblError.Text = "Please select a record from the list to delete";
+            lblError.Text = "Please select a record from the list to delete.";
         }
     }
 
@@ -81,13 +68,12 @@ public partial class _1_List : System.Web.UI.Page
 
     protected void btnClearFilter_Click(object sender, EventArgs e)
     {
-        clsCustomerCollection AnCustomer = new clsCustomerCollection();
-        AnCustomer.ReportByCustomerEmail("");
+        clsCustomerCollection Customers = new clsCustomerCollection();
         txtFilter.Text = "";
-        lstCustomerList.DataSource = AnCustomer.CustomerList;
+        lstCustomerList.DataSource = Customers.CustomerList;
         lstCustomerList.DataValueField = "CustomerId";
         lstCustomerList.DataTextField = "CustomerEmail";
         lstCustomerList.DataBind();
-        Response.Redirect("CustomerList.aspx");
+        
     }
 }

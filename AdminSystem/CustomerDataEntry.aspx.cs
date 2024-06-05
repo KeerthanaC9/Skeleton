@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
-    Int32 CustomerId;
+    int CustomerId;
     protected void Page_Load(object sender, EventArgs e)
     {
         CustomerId = Convert.ToInt32(Session["CustomerId"]);
