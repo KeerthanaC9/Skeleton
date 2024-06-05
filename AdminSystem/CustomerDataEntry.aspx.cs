@@ -53,7 +53,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnCustomer.CustomerAddress = CustomerAddress;
             clsCustomerCollection CustomerList = new clsCustomerCollection();
             CustomerList.ThisCustomer = AnCustomer;
-           if(CustomerId == -1)
+            if (CustomerId == -1)
             {
                 CustomerList.ThisCustomer = AnCustomer;
                 CustomerList.Add();
@@ -93,18 +93,18 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
 
         }
-        }
-        void DisplayCustomer()
-        {
-            clsCustomerCollection CustomerBook = new clsCustomerCollection();
-            CustomerBook.ThisCustomer.Find(CustomerId);
-            txtCustomerId.Text = CustomerBook.ThisCustomer.CustomerId.ToString();
-            txtCustomerName.Text = CustomerBook.ThisCustomer.CustomerName.ToString();
-            txtCustomerEmail.Text = CustomerBook.ThisCustomer.CustomerEmail.ToString();
-            txtCustomerDob.Text = CustomerBook.ThisCustomer.CustomerDob.ToString();
-            txtCustomerPhoneNumber.Text = CustomerBook.ThisCustomer.CustomerPhoneNumber.ToString();
-            txtCustomerAddress.Text = CustomerBook.ThisCustomer.CustomerAddress.ToString();
+    }
+    void DisplayCustomer()
+    {
+        clsCustomerCollection CustomerBook = new clsCustomerCollection();
+        CustomerBook.ThisCustomer.Find(CustomerId);
+        txtCustomerId.Text = CustomerBook.ThisCustomer.CustomerId.ToString();
+        txtCustomerName.Text = CustomerBook.ThisCustomer.CustomerName.ToString();
+        txtCustomerEmail.Text = CustomerBook.ThisCustomer.CustomerEmail.ToString();
+        txtCustomerDob.Text = CustomerBook.ThisCustomer.CustomerDob.ToString();
+        txtCustomerPhoneNumber.Text = CustomerBook.ThisCustomer.CustomerPhoneNumber.ToString();
+        txtCustomerAddress.Text = CustomerBook.ThisCustomer.CustomerAddress.ToString();
 
-        }
-    
+    }
+
 }
