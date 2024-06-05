@@ -5,18 +5,76 @@ namespace ClassLibrary
 {
     public class clsCustomerCollection
     {
-        // Declare the list and the current customer
         List<clsCustomer> mCustomerList = new List<clsCustomer>();
         clsCustomer mThisCustomer = new clsCustomer();
 
-        // Constructor
         public clsCustomerCollection()
         {
-            Int32 Index = 0;
-            Int32 RecordCount = 0;
+            PopulateArray(new clsDataConnection());
+        }
+
+        public List<clsCustomer> CustomerList
+        {
+            get { return mCustomerList; }
+            set { mCustomerList = value; }
+        }
+
+        public int Count
+        {
+            get { return mCustomerList.Count; }
+            set { }
+        }
+
+        public clsCustomer ThisCustomer
+        {
+            get { return mThisCustomer; }
+            set { mThisCustomer = value; }
+        }
+
+        public int Add()
+        {
             clsDataConnection DB = new clsDataConnection();
-            DB.Execute("sproc_tblCustomer_SelectAll"); // Corrected stored procedure name
+            DB.AddParameter("@CustomerName", mThisCustomer.CustomerName);
+            DB.AddParameter("@CustomerEmail", mThisCustomer.CustomerEmail);
+            DB.AddParameter("@CustomerDob", mThisCustomer.CustomerDob);
+            DB.AddParameter("@CustomerPhoneNumber", mThisCustomer.CustomerPhoneNumber);
+            DB.AddParameter("@CustomerAddress", mThisCustomer.CustomerAddress);
+            return DB.Execute("sproc_tblCustomer_Insert");
+        }
+
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("CustomerId", mThisCustomer.CustomerId);
+            DB.Execute("sproc_tblCustomer_Delete");
+        }
+
+        public void Update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@CustomerId", mThisCustomer.CustomerId);
+            DB.AddParameter("@CustomerName", mThisCustomer.CustomerName);
+            DB.AddParameter("@CustomerEmail", mThisCustomer.CustomerEmail);
+            DB.AddParameter("@CustomerDob", mThisCustomer.CustomerDob);
+            DB.AddParameter("@CustomerPhoneNumber", mThisCustomer.CustomerPhoneNumber);
+            DB.AddParameter("@CustomerAddress", mThisCustomer.CustomerAddress);
+            DB.Execute("sproc_tblCustomer_Update");
+        }
+
+        public void ReportByCustomerEmail(string CustomerEmail)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@CustomerEmail", CustomerEmail);
+            DB.Execute("sproc_tblCustomer_FilterByCustomerEmail");
+            PopulateArray(DB);
+        }
+
+         void PopulateArray(clsDataConnection DB)
+        {
+            Int32 Index = 0;
+            Int32 RecordCount;
             RecordCount = DB.Count;
+            mCustomerList = new List<clsCustomer>();
             while (Index < RecordCount)
             {
                 clsCustomer AnCustomer = new clsCustomer();
@@ -31,64 +89,22 @@ namespace ClassLibrary
             }
         }
 
-        // Property to access the customer list
-        public List<clsCustomer> CustomerList
+        public bool Find(int CustomerId)
         {
-            get { return mCustomerList; }
-            set { mCustomerList = value; }
-        }
-
-        // Property to get the count of customers
-        public int Count
-        {
-            get { return mCustomerList.Count; }
-            set { }
-        }
-
-        // Property to access the current customer
-        public clsCustomer ThisCustomer
-        {
-            get { return mThisCustomer; }
-            set { mThisCustomer = value; }
-        }
-
-        // Method to add a new customer (stub)
-        public int Add()
-        {
-            // Create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
-
-            // Set the parameters for the stored procedure
-            DB.AddParameter("@CustomerName", mThisCustomer.CustomerName);
-            DB.AddParameter("@CustomerEmail", mThisCustomer.CustomerEmail);
-            DB.AddParameter("@CustomerDob", mThisCustomer.CustomerDob);
-            DB.AddParameter("@CustomerPhoneNumber", mThisCustomer.CustomerPhoneNumber);
-            DB.AddParameter("@CustomerAddress", mThisCustomer.CustomerAddress);
-
-            return DB.Execute("sproc_tblCustomer_Insert");
-        }
-
-        // Method to add test data for debugging purposes
-        private void AddTestData()
-        {
-            clsCustomer TestItem = new clsCustomer();
-            TestItem.CustomerId = 1;
-            TestItem.CustomerName = "Andrew";
-            TestItem.CustomerEmail = "Andrew@gmail.com";
-            TestItem.CustomerDob = DateTime.ParseExact("26/09/1998", "dd/MM/yyyy", null);
-            TestItem.CustomerPhoneNumber = "07853877987";
-            TestItem.CustomerAddress = "98 Gresly Lane";
-            mCustomerList.Add(TestItem);
-
-            TestItem = new clsCustomer();
-            TestItem.CustomerId = 2;
-            TestItem.CustomerName = "Andy";
-            TestItem.CustomerEmail = "Andy@gmail.com";
-            TestItem.CustomerDob = DateTime.ParseExact("19/06/1988", "dd/MM/yyyy", null);
-            TestItem.CustomerPhoneNumber = "07865900876";
-            TestItem.CustomerAddress = "56 Hempsy Lane";
-            mCustomerList.Add(TestItem);
-
+            DB.AddParameter("@CustomerId", CustomerId);
+            DB.Execute("sproc_tblCustomer_FindByCustomerId");
+            if (DB.Count == 1)
+            {
+                mThisCustomer.CustomerId = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerId"]);
+                mThisCustomer.CustomerName = Convert.ToString(DB.DataTable.Rows[0]["CustomerName"]);
+                mThisCustomer.CustomerEmail = Convert.ToString(DB.DataTable.Rows[0]["CustomerEmail"]);
+                mThisCustomer.CustomerDob = Convert.ToDateTime(DB.DataTable.Rows[0]["CustomerDob"]);
+                mThisCustomer.CustomerPhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["CustomerPhoneNumber"]);
+                mThisCustomer.CustomerAddress = Convert.ToString(DB.DataTable.Rows[0]["CustomerAddress"]);
+                return true;
+            }
+            return false;
         }
     }
 }
