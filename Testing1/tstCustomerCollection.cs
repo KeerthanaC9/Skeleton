@@ -83,7 +83,80 @@ namespace Testing1
 
 
         }
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            clsCustomer TestItem = new clsCustomer();
+
+            Int32 PrimaryKey = 0;
+            TestItem.CustomerId = 1;
+            TestItem.CustomerName = "JOEY NEIL";
+            TestItem.CustomerEmail = "JNeil@gmail.com";
+            TestItem.CustomerDob = DateTime.ParseExact("26/09/2002", "dd/MM/yyyy", null);
+            TestItem.CustomerPhoneNumber = "07432988765";
+            TestItem.CustomerAddress = "16 Cranberry Road";
+            AllCustomers.ThisCustomer = TestItem;
+            PrimaryKey = AllCustomers.Add();
+            TestItem.CustomerId = PrimaryKey;
+
+            TestItem.CustomerId = 4;
+            TestItem.CustomerName = "JOEY NEIL";
+            TestItem.CustomerEmail = "JNeil@gmail.com";
+            TestItem.CustomerDob = DateTime.ParseExact("26/09/2002", "dd/MM/yyyy", null);
+            TestItem.CustomerPhoneNumber = "07432988765";
+            TestItem.CustomerAddress = "16 Cranberry Road";
+            AllCustomers.ThisCustomer = TestItem;
+            AllCustomers.Update();
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+            Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
+
+        }
+        [TestMethod]
+        public void DeleteMethod()
+        {
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            clsCustomer TestItem = new clsCustomer();
+            Int32 PrimaryKey = 0;
+            TestItem.CustomerId = 4;
+            TestItem.CustomerName = "JOEY NEIL";
+            TestItem.CustomerEmail = "JNeil@gmail.com";
+            TestItem.CustomerDob = DateTime.ParseExact("26/09/2002", "dd/MM/yyyy", null);
+            TestItem.CustomerPhoneNumber = "07432988765";
+            TestItem.CustomerAddress = "16 Cranberry Road";
+            AllCustomers.ThisCustomer = TestItem;
+            PrimaryKey = AllCustomers.Add();
+            TestItem.CustomerId = PrimaryKey;
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+            AllCustomers.Delete();
+            Boolean Found = AllCustomers.ThisCustomer.Find(PrimaryKey);
+            Assert.IsFalse(Found);
+        }
+        [TestMethod]
+        public void ReportByCustomerEmailMethodOK()
+        {
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+            FilteredCustomers.ReportByCustomerEmail("");
+            Assert.AreEqual(AllCustomers.Count, FilteredCustomers.Count);
+
+        }
+        [TestMethod]
+        public void ReportByCustomerEmailNoneFoundMethod()
+        {
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+            FilteredCustomers.ReportByCustomerEmail("xxx");
+            Assert.AreEqual(0, FilteredCustomers.Count);
+
+        }
+
+        public void ReportByCustomerEmail(string CustomerEmail)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@CustomerEmail", CustomerEmail);
+            DB.Execute("sproc_tblCustomer_FilterByCustomerEmail");
+        }
+
+
     }
 }
-
-
