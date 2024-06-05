@@ -9,9 +9,12 @@ namespace ClassLibrary
         clsCustomer mThisCustomer = new clsCustomer();
 
         public clsCustomerCollection()
-        {
-            PopulateArray(new clsDataConnection());
-        }
+        { 
+        clsDataConnection DB = new clsDataConnection();
+        DB.Execute("sproc_tblCustomer_SelectAll");
+            PopulateArray(DB);
+         }
+
 
         public List<clsCustomer> CustomerList
         {

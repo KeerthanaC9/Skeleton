@@ -142,21 +142,39 @@ namespace Testing1
 
         }
         [TestMethod]
-        public void ReportByCustomerEmailNoneFoundMethod()
+        public void ReportByCustomerEmailNotFound()
         {
             clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
-            FilteredCustomers.ReportByCustomerEmail("xxx");
+            FilteredCustomers.ReportByCustomerEmail("xxxxxxxxxxxx");
             Assert.AreEqual(0, FilteredCustomers.Count);
-
         }
 
-        public void ReportByCustomerEmail(string CustomerEmail)
+      
+
+        [TestMethod]
+        public void ReportByCustomerEmailTestDataFound()
         {
-            clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@CustomerEmail", CustomerEmail);
-            DB.Execute("sproc_tblCustomer_FilterByCustomerEmail");
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+            Boolean OK = true;
+            FilteredCustomers.ReportByCustomerEmail("xxxxxxxxxxxxxx");
+            if (FilteredCustomers.Count == 2)
+            {
+                if (FilteredCustomers.CustomerList[0].CustomerId != 83)
+                {
+                    OK = false;
+                }
+                if (FilteredCustomers.CustomerList[1].CustomerId != 84)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+            
         }
-
 
     }
 }
