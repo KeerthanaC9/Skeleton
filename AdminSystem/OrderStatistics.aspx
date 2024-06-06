@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CustomerStatistics.aspx.cs" Inherits="CustomerStatistics" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="OrderStatistics.aspx.cs" Inherits="OrderStatistics" %>
 
 <!DOCTYPE html>
 
@@ -11,8 +11,8 @@
         <div>
             STATISTICS PAGE</div>
         <br />
-        Customer List - Grouped by Email<br />
-        <asp:GridView ID="GridViewStGroupByEmail" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridViewStGroupByEmail_SelectedIndexChanged">
+        Order List - Grouped by ProductId<br />
+        <asp:GridView ID="GridViewStGroupByProductId" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridViewStGroupByProductId_SelectedIndexChanged">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -26,9 +26,9 @@
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
         <br />
-        Customer List - Grouped by Date of Birth
+        Order List - Grouped by Order Date
         <asp:Button runat="server" Text="Return To Previous Page" OnClick="Unnamed1_Click" ID="btnReturn"></asp:Button><br />
-        <asp:GridView ID="GridViewStGroupByDob" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridViewStGroupByDob_SelectedIndexChanged">
+        <asp:GridView ID="GridViewStGroupByOrderDate" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

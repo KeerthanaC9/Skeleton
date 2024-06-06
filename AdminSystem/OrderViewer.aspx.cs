@@ -18,7 +18,7 @@ public partial class _1Viewer : System.Web.UI.Page
             Response.Write("Product ID: " + AnOrder.ProductId + "<br />");
             Response.Write("Total Price: £" + AnOrder.TotalPrice + "<br />");
             Response.Write("Active: " + (AnOrder.Active ? "Yes" : "No") + "<br />");
-            Response.Write("Order Delivered: " + (AnOrder.OrderDelivered ? "Yes" : "No") + "<br />");
+            Response.Write("Order Delivered: " + (AnOrder.Delivered ? "Yes" : "No") + "<br />");
         }
     }
 }
