@@ -42,45 +42,65 @@ namespace Testing2
         [TestMethod]
         public void StaffIDPropertyOK()
         {
+            //create an instance of the class we want to create
             clsStaff AStaff = new clsStaff();
+            //create some test data to assign to the property
             Int32 TestData = 1;
+            //assign the data to the property
             AStaff.StaffID = TestData;
+            //test to see that the two values are the same
             Assert.AreEqual(AStaff.StaffID, TestData);
         }
 
         [TestMethod]
         public void StaffNamePropertyOK()
         {
+            //create an instance of the class we want to create
             clsStaff AStaff = new clsStaff();
+            //create some test data to assign to the property
             String TestData = "Adebayo Olowofoyeku";
+            //assign the data to the property
             AStaff.StaffName = TestData;
+            //test to see that the two values are the same
             Assert.AreEqual(AStaff.StaffName, TestData);
         }
 
         [TestMethod]
         public void StaffRolePropertyOK()
         {
+            //create an instance of the class we want to create
             clsStaff AStaff = new clsStaff();
+            //create some test data to assign to the property
             String TestData = "Administrator";
+            //assign the data to the property
             AStaff.StaffRole = TestData;
+            //test to see that the two values are the same
             Assert.AreEqual(AStaff.StaffRole, TestData);
         }
 
         [TestMethod]
         public void StaffSalaryPropertyOK()
         {
+            //create an instance of the class we want to create
             clsStaff AStaff = new clsStaff();
+            //create some test data to assign to the property
             Int32 TestData = 26000;
+            //assign the data to the property
             AStaff.StaffSalary = TestData;
+            //test to see that the two values are the same
             Assert.AreEqual(AStaff.StaffSalary, TestData);
         }
 
         [TestMethod]
         public void StaffJobTitlePropertyOK()
         {
+            //create an instance of the class we want to create
             clsStaff AStaff = new clsStaff();
+            //create some test data to assign to the property
             String TestData = "Software Engineer";
+            //assign the data to the property
             AStaff.StaffJobTitle = TestData;
+            //test to see that the two values are the same
             Assert.AreEqual(AStaff.StaffJobTitle, TestData);
         }
 
@@ -667,6 +687,24 @@ namespace Testing2
             Assert.AreEqual(Error, "");
         }
 
+        [TestMethod]
+        public void DateJoinedMid()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            DateTime TestDate;
+            TestDate = Convert.ToDateTime("18/05/2024");
+            //convert the date variable to a string variable
+            string DateJoined = TestDate.ToString();
+            //invoke the method
+            Error = AStaff.Valid(StaffSalary, StaffJobTitle, StaffName, StaffRole, DateJoined);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
 
         [TestMethod]
         public void DateAddedExtremeMax()
@@ -706,52 +744,189 @@ namespace Testing2
         }
 
         [TestMethod]
+        public void DateJoinedBlank()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string DateJoined = "";
+            //invoke the method
+            Error = AStaff.Valid(StaffSalary, StaffJobTitle, StaffName, StaffRole, DateJoined);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
         public void StaffSalaryExtremeMin()
         {
+            //create an instance of the class we want to create
             clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
             string Error = "";
-            string StaffSalary = "";
+            //create some test data to pass to the method
+            string StaffSalary = "-9999999999999";
+            //invoke the method
             Error = AStaff.Valid(StaffSalary, StaffJobTitle, StaffName, StaffRole, DateJoined);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffSalaryBlank()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string StaffSalary = "";
+            //invoke the method
+            Error = AStaff.Valid(StaffSalary, StaffJobTitle, StaffName, StaffRole, DateJoined);
+            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
         public void StaffSalaryMinLessOne()
         {
+            //create an instance of the class we want to create
             clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
             string Error = "";
+            //create some test data to pass to the method
             string StaffSalary = "-1";
+            //invoke the method
             Error = AStaff.Valid(StaffSalary, StaffJobTitle, StaffName, StaffRole, DateJoined);
+            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
         public void StaffSalaryMin()
         {
+            //create an instance of the class we want to create
             clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
             string Error = "";
+            //create some test data to pass to the method
             string StaffSalary = "0";
+            //invoke the method
             Error = AStaff.Valid(StaffSalary, StaffJobTitle, StaffName, StaffRole, DateJoined);
+            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
         public void StaffSalaryMinPlusOne()
         {
+            //create an instance of the class we want to create
             clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
             string Error = "";
+            //create some test data to pass to the method
             string StaffSalary = "1";
+            //invoke the method
             Error = AStaff.Valid(StaffSalary, StaffJobTitle, StaffName, StaffRole, DateJoined);
+            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
         public void StaffSalaryInvalidData()
         {
+            //create an instance of the class we want to create
             clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
             string Error = "";
+            //create some test data to pass to the method
             string StaffSalary = "a";
+            //invoke the method
             Error = AStaff.Valid(StaffSalary, StaffJobTitle, StaffName, StaffRole, DateJoined);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffSalaryMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            //the max value for a 32 bit integer is 2147483647
+            string StaffSalary = "2147483646";
+            //invoke the method
+            Error = AStaff.Valid(StaffSalary, StaffJobTitle, StaffName, StaffRole, DateJoined);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffSalaryMax()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            //the max value for a 32 bit integer is 2147483647
+            string StaffSalary = "2147483647";
+            //invoke the method
+            Error = AStaff.Valid(StaffSalary, StaffJobTitle, StaffName, StaffRole, DateJoined);
+            System.Diagnostics.Debug.WriteLine(Error);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffSalaryMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            //the max value for a 32 bit integer is 2147483647
+            string StaffSalary = "2147483648";
+            //invoke the method
+            Error = AStaff.Valid(StaffSalary, StaffJobTitle, StaffName, StaffRole, DateJoined);
+            System.Diagnostics.Debug.WriteLine(Error);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffSalaryMid()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string StaffSalary = "1073741823";
+            //invoke the method
+            Error = AStaff.Valid(StaffSalary, StaffJobTitle, StaffName, StaffRole, DateJoined);
+            System.Diagnostics.Debug.WriteLine(Error);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffSalaryExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string StaffSalary = "9999999999999";
+            //invoke the method
+            Error = AStaff.Valid(StaffSalary, StaffJobTitle, StaffName, StaffRole, DateJoined);
+            System.Diagnostics.Debug.WriteLine(Error);
+            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
