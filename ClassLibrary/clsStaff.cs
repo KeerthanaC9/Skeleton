@@ -136,69 +136,93 @@ namespace ClassLibrary
 
         public string Valid(string staffSalary, string staffJobTitle, string staffName, string staffRole, string dateJoined)
         {
+            //create a string variable to store the error
             String Error = "";
+            //create a temporary variable to store date values
             DateTime DateTemp;
+            //create instances of DateTime to compare with DateTemp in the if statement
             DateTime DateLaunched = Convert.ToDateTime("26/04/2024");
             DateTime TodaysDate = DateTime.Now.Date;
 
             try
             {
+                //copy the dateJoined value to the DateTemp variable
                 DateTemp = Convert.ToDateTime(dateJoined);
 
-                if (DateTemp < DateLaunched)
+                if (DateTemp < DateLaunched) //compare dateJoined with Date company launched 26/04/2024
                 {
+                    //record the error
                     Error = Error + "The date cannot be before 26/04/2024 : ";
                 }
+                //check to see if the date is greater than today's date
                 if (DateTemp > TodaysDate)
                 {
+                    //record the error
                     Error = Error + "The date cannot be in the future : ";
                 }
             }
             catch
             {
+                //rrecord the error
                 Error = Error + "The date was not a valid date : ";
             }
-
+            //if the staffName is blank
             if (staffName.Length == 0)
             {
+                //record the error
                 Error = Error + "The staff name may not be blank : ";
             }
+            //if the staffName is greater than 50 characters
             if (staffName.Length > 50)
             {
+                //record the error
                 Error = Error + "The staff name must be less than 50 characters : ";
             }
 
+            //if the staffRole is blank
             if (staffRole.Length == 0)
             {
+                //record the error
                 Error = Error + "The staff name may not be blank : ";
             }
+            //if the staffRole is greater than 50 characters
             if (staffRole.Length > 50)
             {
+                //record the error
                 Error = Error + "The staff name must be less than 50 characters : ";
             }
 
+            //if the staffJobTitle is blank
             if (staffJobTitle.Length == 0)
             {
+                //record the error
                 Error = Error + "The staff name may not be blank : ";
             }
+            //if the staffJobTitle is greater than 50 characters
             if (staffJobTitle.Length > 50)
             {
+                //record the error
                 Error = Error + "The staff name must be less than 50 characters : ";
             }
             try
             {
+                //copy the staffSalary value to the intStaffSalary variable
                 Int32 intStaffSalary = Convert.ToInt32(staffSalary);
-                if (intStaffSalary < 0)
+                if (intStaffSalary < 0) //check to see if the staff salary is negative
                 {
+                    //record the error
                     Error = Error + "The salary must not be negative : ";
                 }
             }
             catch
             {
+                //record the error
                 Error = Error + "The salary is not a valid integer : ";
             }
+            //if the staffSalary is blank
             if (staffSalary.Length == 0)
             {
+                //record the error
                 Error = Error + "The salary may not be blank : ";
             }
             return Error;

@@ -36,6 +36,7 @@ public partial class StaffStatistics : System.Web.UI.Page
 
     protected void btnPreviousPage_Click(object sender, EventArgs e)
     {
+        //go back to previous page
         Response.Redirect("StaffList.aspx");
     }
 }

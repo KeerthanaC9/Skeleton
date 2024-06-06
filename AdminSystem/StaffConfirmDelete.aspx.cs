@@ -25,13 +25,13 @@ public partial class _1_ConfirmDelete : System.Web.UI.Page
         StaffCollection.ThisStaff.Find(StaffID);
         //delete the record
         StaffCollection.Delete();
-        //redirect back to the main page
+        //redirect back to the list page
         Response.Redirect("StaffList.aspx");
     }
 
     protected void btnNo_Click(object sender, EventArgs e)
     {
-        //redirect tback to the main page
+        //redirect tback to the list page
         Response.Redirect("StaffList.aspx");
     }
 }
