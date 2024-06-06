@@ -76,4 +76,15 @@ public partial class _1_List : System.Web.UI.Page
         lstCustomerList.DataBind();
         
     }
+
+    protected void btnStat_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CustomerStatistics.aspx");
+    }
+
+    protected void btnMenu_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
+
+    }
 }

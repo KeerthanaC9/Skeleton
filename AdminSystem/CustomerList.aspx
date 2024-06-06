@@ -14,7 +14,7 @@
         &nbsp;<p>
             <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" style="width: 37px" />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Edit" />
+            <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Edit" style="height: 26px" />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
         </p>
@@ -27,6 +27,12 @@
             <asp:Button ID="btnApplyFilter" runat="server" OnClick="btnApplyFilter_Click" Text="Apply Filter" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="btnClearFilter" runat="server" OnClick="btnClearFilter_Click" Text="Clear Filter" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnStat" runat="server" OnClick="btnStat_Click" Text="Statistics Page" />
+        </p>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnMenu" runat="server" OnClick="btnMenu_Click" Text="Return To Main Menu" />
         </p>
         <p>
             &nbsp;</p>
