@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 
 namespace ClassLibrary
 {
@@ -135,7 +136,95 @@ namespace ClassLibrary
 
         public string Valid(string staffSalary, string staffJobTitle, string staffName, string staffRole, string dateJoined)
         {
-            return "";
+            String Error = "";
+            DateTime DateTemp;
+            DateTime DateComp = DateTime.Now.Date;
+
+            try
+            {
+                DateTemp = Convert.ToDateTime(dateJoined);
+
+                if (DateTemp < DateComp)
+                {
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                if (DateTemp > DateComp)
+                {
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The date was not a valid date : ";
+            }
+
+            if (staffName.Length == 0)
+            {
+                Error = Error + "The staff name may not be blank : ";
+            }
+            if (staffName.Length > 50)
+            {
+                Error = Error + "The staff name must be less than 50 characters : ";
+            }
+
+            if (staffRole.Length == 0)
+            {
+                Error = Error + "The staff name may not be blank : ";
+            }
+            if (staffRole.Length > 50)
+            {
+                Error = Error + "The staff name must be less than 50 characters : ";
+            }
+
+            if (staffJobTitle.Length == 0)
+            {
+                Error = Error + "The staff name may not be blank : ";
+            }
+            if (staffJobTitle.Length > 50)
+            {
+                Error = Error + "The staff name must be less than 50 characters : ";
+            }
+            try
+            {
+                Int32 intStaffSalary = Convert.ToInt32(staffSalary);
+                if (intStaffSalary < 0)
+                {
+                    Error = Error + "The salary must not be negative : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The salary is not a valid integer : ";
+            }
+            if (staffSalary.Length == 0)
+            {
+                Error = Error + "The salary may not be blank : ";
+            }
+            return Error;
+        }
+
+        /****** Statistics Grouped by Staff Salary Method ******/
+        public DataTable StatisticsGroupedByStaffSalary()
+        {
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_Count_GroupByStaffSalary");
+            //There should be either zero, one or more records
+            return DB.DataTable;
+        }
+
+        /****** Statistics Grouped By Date Joined Method ******/
+        public DataTable StatisticsGroupedDateJoined()
+        {
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_Count_GroupByDateJoined");
+            //There should be either zero, one or more records
+            return DB.DataTable;
         }
     }
 }

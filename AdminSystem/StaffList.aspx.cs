@@ -81,4 +81,48 @@ public partial class _1_List : System.Web.UI.Page
             lblError.Text = "Please select a record from the list to delete";
         }
     }
+
+    protected void btnStaffRoleApplyFilter_Click(object sender, EventArgs e)
+    {
+        //create an instance of the staff object
+        clsStaffCollection staffCollection = new clsStaffCollection(); 
+        //retrieve the value of staff role from the presentation layer
+        staffCollection.ReportByStaffRole(txtStaffRoleFilter.Text);
+        //set the data source to the list of staff in the collection
+        lstStaffList.DataSource = staffCollection.StaffList;
+        //set the name of the primary key
+        lstStaffList.DataValueField = "StaffID";
+        //set te name of the field to display
+        lstStaffList.DataTextField = "StaffName";
+        //bind the data to the list
+        lstStaffList.DataBind();
+    }
+
+    protected void btnStaffRoleClearFilter_Click(object sender, EventArgs e)
+    {
+        //create an instance of the staff object
+        clsStaffCollection staffCollection = new clsStaffCollection();
+        //set an empty string
+        staffCollection.ReportByStaffRole("");
+        //clear any existing filter to tidy up the interface
+        txtStaffRoleFilter.Text = "";
+        //set the data source to the list of staff in the collection
+        lstStaffList.DataSource = staffCollection.StaffList;
+        //set the name of the primary key
+        lstStaffList.DataValueField = "StaffID";
+        //set the name of the field to display
+        lstStaffList.DataTextField = "StaffName";
+        //bind the data to the list
+        lstStaffList.DataBind();
+    }
+
+    protected void btnMainMenu_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
+    }
+
+    protected void btnStPage_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("StaffStatistics.aspx");
+    }
 }

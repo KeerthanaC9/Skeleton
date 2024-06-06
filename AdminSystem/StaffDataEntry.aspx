@@ -25,7 +25,8 @@
         <asp:TextBox ID="txtDateJoined" runat="server" style="z-index: 1; left: 131px; top: 234px; position: absolute"></asp:TextBox>
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 10px; top: 274px; position: absolute"></asp:Label>
         <asp:Button ID="btnOK" runat="server" style="z-index: 1; left: 10px; top: 324px; position: absolute" Text="OK" OnClick="btnOK_Click" />
-        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 120px; top: 324px; position: absolute" Text="Cancel" />
+        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 120px; top: 324px; position: absolute" Text="Cancel" OnClick="btnCancel_Click" />
+        <asp:Button ID="btnMainMenu" runat="server" OnClick="btnMainMenu_Click" style="z-index: 1; left: 380px; top: 322px; position: absolute" Text="Return to Main Menu" />
     </form>
 </body>
 </html>

@@ -128,4 +128,15 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
         }
     }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        //redirect the user back to the list page
+        Response.Redirect("StaffList.aspx");
+    }
+
+    protected void btnMainMenu_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
+    }
 }
