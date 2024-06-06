@@ -28,4 +28,9 @@ public partial class CustomerStatistics : System.Web.UI.Page
     {
 
     }
+
+    protected void Unnamed1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CustomerList.aspx");
+    }
 }
