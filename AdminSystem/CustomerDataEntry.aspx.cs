@@ -51,7 +51,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnCustomer.CustomerPhoneNumber = CustomerPhoneNumber;
             AnCustomer.CustomerAddress = CustomerAddress;
             clsCustomerCollection CustomerList = new clsCustomerCollection();
-            CustomerList.ThisCustomer = AnCustomer;
+            //CustomerList.ThisCustomer = AnCustomer;
             if (CustomerId == -1)
             {
                 CustomerList.ThisCustomer = AnCustomer;
@@ -106,4 +106,22 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     }
 
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CustomerList.aspx");
+
+    }
+
+    protected void btnStat_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CustomerStatistics.aspx");
+
+    }
+
+    protected void btnMenu_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
+
+    }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Runtime.CompilerServices;
 
 namespace ClassLibrary
@@ -70,9 +71,99 @@ namespace ClassLibrary
             }
         }
 
-        public string Valid(string customerName, string customerEmail, string customerDob, string customerPhoneNumber, string customerAddress)
+        
+            public string Valid(string customerName, string customerEmail, string customerDob, string customerPhoneNumber, string customerAddress)
+            {
+                //create a string variable to store the error
+                String Error = "";
+                DateTime DateTemp;
+                DateTime DateComp = DateTime.Now.Date.AddYears(-18);
+                DateTime DateComp2 = DateTime.Now.Date.AddYears(-110);
+
+            try
+            {
+                DateTemp = Convert.ToDateTime(customerDob);
+                if (DateTemp > DateComp)
+                {
+                    Error = Error + "You cannot be younger than 18 : ";
+                }
+                if (DateTemp < DateComp2)
+                {
+                    Error = Error + "You cannot be older than 150 : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The date was not a valid date : ";
+            }
+               
+                if (customerName.Length == 0)
+                {
+                    //record the error
+                    Error = Error + "The  name may not be blank : ";
+                }
+                if (customerName.Length > 50)
+                {
+                    //record the error
+                    Error = Error + "The  name must be less than 6 characters : ";
+                }
+               
+                if (customerEmail.Length == 0)
+                {
+                    //record the error
+                    Error = Error + "The email may not be blank : ";
+                }
+
+               if (customerEmail.Length > 50)
+                {
+                    //record the error
+                    Error = Error + "The email must be less than 9 characters : ";
+                }
+                if (customerPhoneNumber.Length == 0)
+                {
+                    //record the error
+                    Error = Error + "The phone number may not be blank : ";
+                }
+               
+                if (customerPhoneNumber.Length > 50)
+                {
+                    //record the error
+                    Error = Error + "The phone number must be less than 50 characters : ";
+                }
+                if (customerAddress.Length == 0)
+                {
+                    //record the error
+                    Error = Error + "The address may not be blank : ";
+                }
+                if (customerAddress.Length > 50)
+                {
+                    //record the error
+                    Error = Error + "The address must be less than 50 characters : ";
+                }
+                //return any error messages
+                return Error;
+            }
+        public DataTable StatisticsGroupByEmail()
         {
-            return "";
+            // Create an instance of the clsDataConnection class
+            clsDataConnection DB = new clsDataConnection();
+            // Execute the stored procedure for grouping by email
+            DB.Execute("sproc_tblCustomer_Count_GroupByEmail");
+            // Return the resulting DataTable
+            return DB.DataTable;
         }
+
+        public DataTable StatisticsGroupDob()
+        {
+            // Create an instance of the clsDataConnection class
+            clsDataConnection DB = new clsDataConnection();
+            // Execute the stored procedure for grouping by date of birth
+            DB.Execute("sproc_tblCustomer_Count_GroupDob");
+            // Return the resulting DataTable
+            return DB.DataTable;
+        }
+
+
+
     }
 }
