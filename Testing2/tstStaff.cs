@@ -595,7 +595,7 @@ namespace Testing2
             //create some test data to pass to the method
             DateTime TestDate;
             //set the date to todays date
-            TestDate = DateTime.Now.Date;
+            TestDate = Convert.ToDateTime("26/04/2024");
             //change the data to whatever the dat is plus 100 years
             TestDate = TestDate.AddYears(-100);
             //convert the date variable to a string variable
@@ -616,7 +616,7 @@ namespace Testing2
             //create some test data to pass to the method
             DateTime TestDate;
             //set the date to todays date
-            TestDate = DateTime.Now.Date;
+            TestDate = Convert.ToDateTime("26/04/2024");
             //change the data to whatever the dat is plus 100 years
             TestDate = TestDate.AddDays(-1);
             //convert the date variable to a string variable
@@ -637,7 +637,7 @@ namespace Testing2
             //create some test data to pass to the method
             DateTime TestDate;
             //set the date to todays date
-            TestDate = DateTime.Now.Date;
+            TestDate = Convert.ToDateTime("26/04/2024");
             //convert the date variable to a string variable
             string DateJoined = TestDate.ToString();
             //invoke the method
@@ -656,7 +656,7 @@ namespace Testing2
             //create some test data to pass to the method
             DateTime TestDate;
             //set the date to todays date
-            TestDate = DateTime.Now.Date;
+            TestDate = Convert.ToDateTime("26/04/2024");
             //change the data to whatever the dat is plus 100 years
             TestDate = TestDate.AddDays(1);
             //convert the date variable to a string variable
@@ -664,7 +664,7 @@ namespace Testing2
             //invoke the method
             Error = AStaff.Valid(StaffSalary, StaffJobTitle, StaffName, StaffRole, DateJoined);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
 

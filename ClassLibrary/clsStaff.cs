@@ -138,17 +138,18 @@ namespace ClassLibrary
         {
             String Error = "";
             DateTime DateTemp;
-            DateTime DateComp = DateTime.Now.Date;
+            DateTime DateLaunched = Convert.ToDateTime("26/04/2024");
+            DateTime TodaysDate = DateTime.Now.Date;
 
             try
             {
                 DateTemp = Convert.ToDateTime(dateJoined);
 
-                if (DateTemp < DateComp)
+                if (DateTemp < DateLaunched)
                 {
-                    Error = Error + "The date cannot be in the past : ";
+                    Error = Error + "The date cannot be before 26/04/2024 : ";
                 }
-                if (DateTemp > DateComp)
+                if (DateTemp > TodaysDate)
                 {
                     Error = Error + "The date cannot be in the future : ";
                 }
