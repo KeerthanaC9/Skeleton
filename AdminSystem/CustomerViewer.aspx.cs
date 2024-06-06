@@ -20,6 +20,7 @@ public partial class _1Viewer : System.Web.UI.Page
         Response.Write(AnCustomer.CustomerPhoneNumber);
         Response.Write(AnCustomer.CustomerAddress);
         Response.Write(AnCustomer.CustomerDob);
+
     }
 
 }

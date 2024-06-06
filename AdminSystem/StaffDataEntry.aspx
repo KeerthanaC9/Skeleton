@@ -14,6 +14,7 @@
         <asp:TextBox ID="txtStaffID" runat="server" style="z-index: 1; left: 132px; top: 34px; position: absolute"></asp:TextBox>
         <asp:TextBox ID="txtStaffName" runat="server" style="z-index: 1; left: 132px; top: 74px; position: absolute"></asp:TextBox>
         <asp:Label ID="lblStaffName" runat="server" style="z-index: 1; left: 10px; top: 74px; position: absolute" Text="Staff Name" width="79px"></asp:Label>
+        <asp:Button ID="btnFind" style="z-index: 1; left: 376px; top: 34px; position: absolute" runat="server" Text="Find" OnClick="btnFind_Click" />
         <asp:Label ID="lblStaffRole" runat="server" style="z-index: 1; left: 10px; top: 114px; position: absolute" Text="Staff Role" width="79px"></asp:Label>
         <asp:TextBox ID="txtStaffRole" runat="server" style="z-index: 1; left: 132px; top: 114px; position: absolute"></asp:TextBox>
         <asp:Label ID="lblStaffSalary" runat="server" style="z-index: 1; left: 10px; top: 154px; position: absolute" Text="Staff Salary" width="79px"></asp:Label>
@@ -24,7 +25,8 @@
         <asp:TextBox ID="txtDateJoined" runat="server" style="z-index: 1; left: 131px; top: 234px; position: absolute"></asp:TextBox>
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 10px; top: 274px; position: absolute"></asp:Label>
         <asp:Button ID="btnOK" runat="server" style="z-index: 1; left: 10px; top: 324px; position: absolute" Text="OK" OnClick="btnOK_Click" />
-        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 120px; top: 324px; position: absolute" Text="Cancel" />
+        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 120px; top: 324px; position: absolute" Text="Cancel" OnClick="btnCancel_Click" />
+        <asp:Button ID="btnMainMenu" runat="server" OnClick="btnMainMenu_Click" style="z-index: 1; left: 380px; top: 322px; position: absolute" Text="Return to Main Menu" />
     </form>
 </body>
 </html>

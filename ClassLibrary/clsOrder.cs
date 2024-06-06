@@ -20,6 +20,7 @@
 //             8
 //         };
 
+
 //         // Search for the order with the given orderId
 //         var AnOrder = Orders.FirstOrDefault(o => o.OrderId == orderId);
 //         if (AnOrder != null)
@@ -37,6 +38,7 @@
 //         return false;
 //     }
 // }
+
 
 // public class ClsOrder
 // {
@@ -164,6 +166,7 @@
 //         }
 //     }
 
+
 //     public bool Find(int orderId, int mCustmerId, DateTime mOrderDate, int mProductId, decimal mTotalPrice, bool mActive, bool mDelivered)
 //     {
 //         //create an instance of the data connection
@@ -194,3 +197,4 @@
 //         }
 //     }
 // }
+
