@@ -26,7 +26,8 @@
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
         <br />
-        Customer List - Grouped by Date of Birth<br />
+        Customer List - Grouped by Date of Birth
+        <asp:Button runat="server" Text="Return To Previous Page" OnClick="Unnamed1_Click" ID="btnReturn"></asp:Button><br />
         <asp:GridView ID="GridViewStGroupByDob" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <EditRowStyle BackColor="#999999" />
