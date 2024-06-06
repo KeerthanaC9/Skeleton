@@ -17,13 +17,14 @@
         <asp:Label ID="lblProductId" runat="server" style="z-index: 1; left: 27px; top: 143px; position: absolute; width: 57px;" Text="Product ID" height="19px"></asp:Label>
         <asp:Label ID="lblTotalPrice" runat="server" style="z-index: 1; left: 26px; top: 178px; position: absolute; width: 57px;" Text="Total Price" height="19px"></asp:Label>
         <asp:CheckBox ID="chkActive" runat="server" style="z-index: 1; left: 171px; top: 219px; position: absolute" Text="Order Active" />
-        <asp:CheckBox ID="chkDelivered" runat="server" style="z-index: 1; left: 171px; top: 247px; position: absolute" Text="OrderDelivered" />
+        <asp:CheckBox ID="chkDelivered" runat="server" style="z-index: 1; left: 171px; top: 247px; position: absolute" Text="Delivered" />
         <asp:TextBox ID="txtCustomerId" runat="server" style="z-index: 1; left: 171px; top: 72px; position: absolute"></asp:TextBox>
         <asp:TextBox ID="txtOrderDate" runat="server" style="z-index: 1; left: 171px; top: 111px; position: absolute"></asp:TextBox>
         <asp:TextBox ID="txtProductId" runat="server" style="z-index: 1; left: 171px; top: 148px; position: absolute"></asp:TextBox>
         <asp:Label ID="lblError" runat="server" Style="z-index: 1; left: 26px; top: 287px; position: absolute"></asp:Label>
         <asp:Button ID="btnOK" runat="server" Text="OK" OnClick="btnOK_Click" style="z-index: 1; left: 80px; top: 339px; position: absolute" />
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 143px; top: 339px; position: absolute" Text="Cancel" />
+        <asp:Button ID="btnReturnToMainMenu" runat="server" style="z-index: 1; left: 230px; top: 339px; position: absolute" Text="Return To Main Menu" OnClick="btnReturnToMainMenu_Click" />
         <p>
             <asp:Button ID="btnFind" runat="server" Height="31px" OnClick="btnFind_Click" style="margin-left: 349px" Text="Find" Width="74px" />
         </p>

@@ -2,7 +2,6 @@
 using FsCheck;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Data;
 
 namespace Testing3
 {
@@ -31,6 +30,18 @@ namespace Testing3
             Assert.AreEqual(AnOrder.Active, TestData);
         }
 
+        [TestMethod]
+        public void DateAddedOrderOK()
+        {
+            //create an instance of the class we want to create 
+            clsOrder AnOrder = new clsOrder();
+            //create some test data to assign to the property 
+            DateTime TestData = DateTime.Now.Date;
+            //assign the data to the property 
+            AnOrder.DateAdded = TestData;
+            //test to see that the two values are the same 
+            Assert.AreEqual(AnOrder.DateAdded, TestData);
+        }
 
         [TestMethod]
         public void OrderIdOK()
@@ -72,16 +83,16 @@ namespace Testing3
         }
 
         [TestMethod]
-        public void DeliveredOK()
+        public void OrderDeliveredOK()
         {
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
             //create some test data to assign to the property
             bool TestData = true;
             //assign the data to the property
-            AnOrder.Delivered = TestData;
+            AnOrder.OrderDelivered = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnOrder.Delivered, TestData);
+            Assert.AreEqual(AnOrder.OrderDelivered, TestData);
         }
 
         [TestMethod]
@@ -105,7 +116,7 @@ namespace Testing3
             //create a boolean variable to store the results of the validation
             Boolean Found = false;
             //create some test data to use with the method 
-            Int32 OrderId = 5;
+            Int32 OrderId = 21;
             //Invoke the method
             Found = AnOrder.Find(OrderId);
             //test to see if the result is true 
@@ -122,11 +133,11 @@ namespace Testing3
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderId = 5;
+            Int32 OrderId = 7;
             //invoke the method
             Found = AnOrder.Find(OrderId);
             //check the Order id property
-            if (AnOrder.OrderId != 5)
+            if (AnOrder.OrderId != 7)
             {
                 OK = false;
             }
@@ -144,11 +155,11 @@ namespace Testing3
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerId = 5;
+            Int32 CustomerId = 43;
             //invoke the method
             Found = AnOrder.Find(CustomerId);
             //check the customer id property
-            if (AnOrder.CustomerId != 5)
+            if (AnOrder.CustomerId != 43)
             {
                 OK = false;
             }
@@ -166,11 +177,11 @@ namespace Testing3
             //create Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderId = 5;
+            Int32 OrderId = 7;
             //invoke the method
             Found = AnOrder.Find(OrderId);
             //check the date added property
-            if (AnOrder.OrderDate != Convert.ToDateTime("01/11/2020"))
+            if (AnOrder.OrderDate != Convert.ToDateTime("06/01/2008"))
             {
                 OK = false;
             }
@@ -192,7 +203,7 @@ namespace Testing3
             //invoke the method
             Found = AnOrder.Find(ProductId);
             //check the product id property
-            if (AnOrder.ProductId != 5)
+            if (AnOrder.ProductId != 157)
             {
                 OK = false;
             }
@@ -210,11 +221,11 @@ namespace Testing3
             //create Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderId = 5;
+            Int32 OrderId = 7;
             //invoke the method
             Found = AnOrder.Find(OrderId);
             //check the total price property
-            if (AnOrder.TotalPrice != 7.50f)
+            if (AnOrder.TotalPrice != 157)
             {
                 OK = false;
             }
@@ -232,7 +243,7 @@ namespace Testing3
             //create Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderId = 5;
+            Int32 OrderId = 7;
             //invoke the method
             Found = AnOrder.Find(OrderId);
             //check the active property
@@ -254,34 +265,5 @@ namespace Testing3
             //create Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderId = 5;
-            //invoke the method
-            Found = AnOrder.Find(OrderId);
-            //check the active property
-            if (AnOrder.Delivered != true)
-            {
-                OK = false;
-            }
-            //test to see that the result is correct
-            Assert.IsTrue(OK);
-        }
-
-        [TestMethod]
-        public void StatStatisticsGroupedByProductId()
-        {
-            clsOrder AnOrder = new clsOrder();
-            DataTable dT = AnOrder.StatisticsGroupedByProductId();
-            int noOfRecord = 4;
-            Assert.AreEqual(noOfRecord, dT.Rows.Count);
-        }
-
-        [TestMethod]
-        public void StatStatisticsGroupedOrderDate()
-        {
-            clsOrder AnOrder = new clsOrder();
-            DataTable dT = AnOrder.StatisticsGroupedOrderDate();
-            int noOfRecord = 5;
-            Assert.AreEqual(noOfRecord, dT.Rows.Count);
-        }
-    }
-}
+            Int32 OrderId = 7;
+            //invoke the

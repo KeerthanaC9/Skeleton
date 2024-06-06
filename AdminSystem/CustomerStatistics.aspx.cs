@@ -24,13 +24,11 @@ public partial class CustomerStatistics : System.Web.UI.Page
         GridViewStGroupByDob.HeaderRow.Cells[0].Text = " Text ";
     }
 
-    protected void GridViewStGroupByEmail_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
 
     protected void Unnamed1_Click(object sender, EventArgs e)
     {
         Response.Redirect("CustomerList.aspx");
     }
+
+
 }
