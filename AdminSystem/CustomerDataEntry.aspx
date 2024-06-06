@@ -43,7 +43,11 @@
         <br />
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="width: 33px; height: 26px;" Text="OK" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnCancel" runat="server" Text="Cancel"/>
+        <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click"/>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnStat" runat="server" OnClick="btnStat_Click" Text="Statistics Page" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnMenu" runat="server" OnClick="btnMenu_Click" Text="Return To Main Menu" />
         <br />
         <br />
         <br />
