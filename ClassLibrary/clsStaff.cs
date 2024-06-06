@@ -183,26 +183,26 @@ namespace ClassLibrary
             if (staffRole.Length == 0)
             {
                 //record the error
-                Error = Error + "The staff name may not be blank : ";
+                Error = Error + "The staff role may not be blank : ";
             }
             //if the staffRole is greater than 50 characters
             if (staffRole.Length > 50)
             {
                 //record the error
-                Error = Error + "The staff name must be less than 50 characters : ";
+                Error = Error + "The staff role must be less than 50 characters : ";
             }
 
             //if the staffJobTitle is blank
             if (staffJobTitle.Length == 0)
             {
                 //record the error
-                Error = Error + "The staff name may not be blank : ";
+                Error = Error + "The staff job title may not be blank : ";
             }
             //if the staffJobTitle is greater than 50 characters
             if (staffJobTitle.Length > 50)
             {
                 //record the error
-                Error = Error + "The staff name must be less than 50 characters : ";
+                Error = Error + "The staff job title must be less than 50 characters : ";
             }
             try
             {
