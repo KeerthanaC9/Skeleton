@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ClassLibrary.clsCustomer">
+    <Position X="1.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEEAAAAAAAAAAAgAAAAAAAAAAAACFAgAAAAAAAAAAA=</HashCode>
+      <FileName>clsCustomer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary.clsOrder">
+    <Position X="7" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GAAAAAAAAAAAAAAAAgAAAAAAAAAAQBAgAQAAAAAAAAA=</HashCode>
+      <FileName>clsOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary.clsStock">
+    <Position X="3.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACEAAAAAAAAIAAAAABAABBgAAJAAEYAAAARAAIAAI=</HashCode>
+      <FileName>clsStock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary.clsStockCollection">
+    <Position X="5.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAEAAAAAAgAAAQAIAEAAAAAAAIQAAIAAAA=</HashCode>
+      <FileName>clsStockCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary.v">
+    <Position X="9" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>v.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsDataConnection">
+    <Position X="9" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAEIAAABAAAAEwAQAAAAAwCCAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>clsDataConnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
