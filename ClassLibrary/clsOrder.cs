@@ -6,194 +6,245 @@ namespace ClassLibrary
 {
     public class clsOrder
     {
-        public bool Active { get; set; }
-        public DateTime DateAdded { get; set; }
-        public float TotalPrice { get; set; }
-        public bool OrderDelivered { get; set; }
-        public int CustomerId { get; set; }
-        public int ProductId { get; set; }
-        public int OrderId { get; set; }
-        public DateTime OrderDate { get; set; }
-
-        private static readonly List<clsOrder> Orders = new List<clsOrder>
-    {
-        
-    };
-
-            // Search for the order with the given orderId
-            var AnOrder = Orders.FirstOrDefault(o => o.OrderId == orderId);
-            if (AnOrder != null)
-            {
-                // If found, copy properties to the current instance
-                this.OrderId = AnOrder.OrderId;
-                this.CustomerId = AnOrder.CustomerId;
-                this.OrderDate = AnOrder.OrderDate;
-                this.ProductId = AnOrder.ProductId;
-                this.TotalPrice = AnOrder.TotalPrice;
-                this.Active = AnOrder.Active;
-                this.OrderDelivered = AnOrder.OrderDelivered;
-                return true;
-            }
-            return false;
-        }
-    }
-
-    public class ClsOrder
+        //private data member for the date added property
+        private bool mActive;
+        //OrderDate Added public property
+        public bool Active
         {
-            //private data member for the address id property
-            private Int32 mOrderId;
-            //OrderId public property
-            public Int32 OrderId
+            get
             {
-                get
-                {
-                    //this line of code sends data out of the property 
-                    return mOrderId;
-
-                }
-                set
-                {
-                    //this line of code allows data into the property 
-                    mOrderId = value;
-                }
+                //this line of code sends data out of the property
+                return mActive;
             }
-            public bool Find(Action orderIdOK)
+            set
             {
-                //always return true
-                return true;
-            }
-
-            //private data member for the customer id property
-            private Int32 mCustomerId;
-            //addressId public property
-            public int CustomerId
-            {
-                get
-                {
-                    //this line of code sends data out of the property
-                    return mCustomerId;
-                }
-                set
-                {
-                    //this line of code allows data into the property
-                    mCustomerId = value;
-                }
-            }
-
-            //private data member for the customer id property
-            private Int32 mOrderDate;
-            //addressId public property
-            public int OrderDate
-            {
-                get
-                {
-                    //this line of code sends data out of the property
-                    return mOrderDate;
-                }
-                set
-                {
-                    //this line of code allows data into the property
-                    mOrderDate = value;
-                }
-            }
-
-            //private data member for the customer id property
-            private Int32 mProductId;
-            //addressId public property
-            public int ProductId
-            {
-                get
-                {
-                    //this line of code sends data out of the property
-                    return mProductId;
-                }
-                set
-                {
-                    //this line of code allows data into the property
-                    mProductId = value;
-                }
-            }
-
-            //private data member for the customer id property
-            private Int32 mTotaLPrice;
-            //addressId public property
-            public int TotalPrice
-            {
-                get
-                {
-                    //this line of code sends data out of the property
-                    return mTotaLPrice;
-                }
-                set
-                {
-                    //this line of code allows data into the property
-                    TotalPrice = value;
-                }
-            }
-
-            //private data member for the customer id property
-            private Int32 mActive;
-            //addressId public property
-            public int Ative
-            {
-                get
-                {
-                    //this line of code sends data out of the property
-                    return mActive;
-                }
-                set
-                {
-                    //this line of code allows data into the property
-                    mActive = value;
-                }
-            }
-
-            //private data member for the customer id property
-            private Int32 mDelivered;
-            //addressId public property
-            public int Delivered
-            {
-                get
-                {
-                    //this line of code sends data out of the property
-                    return mDelivered;
-                }
-                set
-                {
-                    //this line of code allows data into the property
-                    mDelivered = value;
-                }
-            }
-
-            public bool Find(int orderId, int mCustmerId, DateTime mOrderDate, int mProductId, decimal mTotalPrice, bool mActive, bool mDelivered)
-            {
-                //create an instance of the data connection
-                clsDataConnection DB = new clsDataConnection();
-                //add the parameter for the address id to search for 
-                DB.AddParameter("@OrderId", OrderId);
-                //execute the stored procedure
-                DB.Execute("sproc_tblOrder_FilterByOrderId");
-                //if one recorder is found (there should be either one or zero)
-                if (DB.Count == 1)
-                {
-                    //copy the data from the database to the private data members
-                    mOrderId = Convert.ToInt32(DB.DataTable.Rows[0]["OrderId"]);
-                    mCustmerId = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerId"]);
-                    mOrderDate = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderDate"]);
-                    mProductId = Convert.ToInt32(DB.DataTable.Rows[0]["ProductId"]);
-                    mTotalPrice = Convert.ToInt32(DB.DataTable.Rows[0]["TotalPrice"]);
-                    mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
-                    mDelivered = Convert.ToBoolean(DB.DataTable.Rows[0]["Delivered"]);
-                    //return that everythingn worked OK
-                    return true;
-                }
-                //if no record was found
-                else
-                {
-                    //return false indicating that there is a problem
-                    return false;
-
-                }
+                //this line of code allows data into the property
+                mActive = value;
             }
         }
+
+        //private data member for the address id property
+        private float mTotalPrice;
+        //OrderId public property
+        public float TotalPrice
+        {
+            get
+            {
+                //this line of code sends data out of the property 
+                return mTotalPrice;
+
+            }
+            set
+            {
+                //this line of code allows data into the property 
+                mTotalPrice = value;
+            }
+        }
+
+        //private data member for the address id property
+        private Int32 mCustomerId;
+        //OrderId public property
+        public Int32 CustomerId
+        {
+            get
+            {
+                //this line of code sends data out of the property 
+                return mCustomerId;
+
+            }
+            set
+            {
+                //this line of code allows data into the property 
+                mOrderId = value;
+            }
+        }
+
+        //private data member for the address id property
+        private Int32 mProductId;
+        //OrderId public property
+        public Int32 ProductId
+        {
+            get
+            {
+                //this line of code sends data out of the property 
+                return mProductId;
+
+            }
+            set
+            {
+                //this line of code allows data into the property 
+                mProductId = value;
+            }
+        }
+
+        //private data member for the date added property
+        private DateTime mOrderDate;
+        //OrderDate Added public property
+        public DateTime OrderDate
+        {
+            get
+            {
+                //this line of code sends data out of the property
+                return mOrderDate;
+            }
+            set
+            {
+                //this line of code allows data into the property
+                mOrderDate = value;
+            }
+        }
+
+
+
+        //private data member for the address id property
+        private Int32 mOrderId;
+        //OrderId public property
+        public Int32 OrderId
+        {
+            get
+            {
+                //this line of code sends data out of the property 
+                return mOrderId;
+
+            }
+            set
+            {
+                //this line of code allows data into the property 
+                mOrderId = value;
+            }
+        }
+
+        //private data member for the customer id property
+        private bool mOrderDelivered;
+        //addressId public property
+        public bool OrderDelivered
+        {
+            get
+            {
+                //this line of code sends data out of the property
+                return mOrderDelivered;
+            }
+            set
+            {
+                //this line of code allows data into the property
+                mOrderDelivered = value;
+            }
+        }
+        public bool Find(int orderId)
+        {
+            //create aninstance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the order id to search for
+            DB.AddParameter("@OrderId", orderId);
+            //execute the stored procedure
+            DB.Execute("sproc_tblOrder_FilterByOrderId");
+            //if one record is found (there should either be one or zero)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members 
+                mOrderId = Convert.ToInt32(DB.DataTable.Rows[0]["OrderId"]);
+                mCustomerId = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerId"]);
+                mOrderDate = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderDate"]);
+                mProductId = Convert.ToInt32(DB.DataTable.Rows[0]["ProductId"]);
+                mTotalPrice = Convert.ToSingle(DB.DataTable.Rows[0]["TotalPrice"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                mOrderDelivered = Convert.ToBoolean(DB.DataTable.Rows[0]["Delivered"]);
+                //return that everything worked OK
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public string Valid(string customerId, string orderDate, string productId, string totalPrice, string totalPrice1)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //create a temporary variable to store the date values 
+            DateTime DateTemp;
+            //if the CustomerId is blank
+            if (customerId.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Customer Id may not be blank : ";
+            }
+            //if the customer id is greate than 10 characters
+            if (customerId.Length > 10)
+            {
+                //record the error
+                Error = Error + "The Customer Id must be less than 10 characters : ";
+            }
+            //if the productid is blank
+            if (productId.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Product Id may not be blank : ";
+            }
+            //if the product id is greater than 10 characters
+            if (productId.Length > 10)
+            {
+                //record the error
+                Error = Error + "The Product Id Must be less than 10 characters : ";
+            }
+
+            //if the Total Price is blank
+            if (totalPrice.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Total Price must be completed : ";
+            }
+
+            //if the Total Price is greater than 4 digits 
+            if (totalPrice.Length > 4)
+            {
+                Error = Error + "The Total Price must no exceed 4 digits : ";
+            }
+
+            try
+            {
+                //copy the OrderDate value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(orderDate);
+                if (OrderDate < DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the past : ";
+                }
+
+                //check to see if the date is greater than todays date
+                if (OrderDate > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future ; ";
+                }
+
+                //return any error messages 
+                return Error;
+            }
+            catch
+            {
+                //record the error if the date is not a valid date
+                Error = Error + "The date was not a valid date : ";
+            }
+
+            //return any error messages
+            return Error;
+        }
+
+        public string Valid(object orderId, object customerId, object orderDate, object productId, object totalPrice)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string Valid(object orderId, int customerId, DateTime orderDate, int productId, float totalPrice)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string Valid(string customerId, string orderDate, string productId, string totalPrice)
+        {
+            throw new NotImplementedException();
+        }
     }
+}

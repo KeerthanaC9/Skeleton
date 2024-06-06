@@ -197,6 +197,10 @@ public class clsDataConnection
             //return the count of the query results
             return dataTable.Rows.Count;
         }
+        set
+        {
+            
+        }
     }
 
     public DataTable DataTable

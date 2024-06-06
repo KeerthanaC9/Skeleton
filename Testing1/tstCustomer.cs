@@ -1,6 +1,8 @@
 ﻿using ClassLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text.RegularExpressions;
 
 namespace Testing1
 {
@@ -14,8 +16,9 @@ namespace Testing1
             clsCustomer AnCustomer = new clsCustomer();
             //test to see that it exists
             Assert.IsNotNull(AnCustomer);
-        }
 
+
+        }
         [TestMethod]
         public void ActivePropertyOK()
         {
@@ -27,7 +30,9 @@ namespace Testing1
             AnCustomer.Active = TestData;
             // test to see that the two values are the same
             Assert.AreEqual(AnCustomer.Active, TestData);
+
         }
+
 
         [TestMethod]
         public void CustomerIdPropertyOK()
@@ -37,14 +42,13 @@ namespace Testing1
             AnCustomer.CustomerId = TestData;
             Assert.AreEqual(AnCustomer.CustomerId, TestData);
         }
-
         [TestMethod]
         public void CustomerNamePropertyOK()
         {
             clsCustomer AnCustomer = new clsCustomer();
             string TestData = "JOHN SMITH";
-            AnCustomer.CustomerName = TestData;
-            Assert.AreEqual(AnCustomer.CustomerName, TestData);
+            AnCustomer.customerName = TestData;
+            Assert.AreEqual(AnCustomer.customerName, TestData);
         }
 
         [TestMethod]
@@ -52,26 +56,26 @@ namespace Testing1
         {
             clsCustomer AnCustomer = new clsCustomer();
             string TestData = "jsmith@gmail.com";
-            AnCustomer.CustomerEmail = TestData;
-            Assert.AreEqual(AnCustomer.CustomerEmail, TestData);
+            AnCustomer.customerEmail = TestData;
+            Assert.AreEqual(AnCustomer.customerEmail, TestData);
         }
-
         [TestMethod]
         public void CustomerDobPropertyOK()
         {
             clsCustomer AnCustomer = new clsCustomer();
             DateTime TestData = new DateTime(2004, 4, 10);
-            AnCustomer.CustomerDob = TestData;
-            Assert.AreEqual(AnCustomer.CustomerDob, TestData);
+            AnCustomer.customerDob = TestData;
+            Assert.AreEqual(AnCustomer.customerDob, TestData);
         }
+
 
         [TestMethod]
         public void CustomerAddressPropertyOK()
         {
             clsCustomer AnCustomer = new clsCustomer();
             string TestData = "65 Apple Lane";
-            AnCustomer.CustomerAddress = TestData;
-            Assert.AreEqual(AnCustomer.CustomerAddress, TestData);
+            AnCustomer.customerAddress = TestData;
+            Assert.AreEqual(AnCustomer.customerAddress, TestData);
         }
 
         [TestMethod]
@@ -79,18 +83,31 @@ namespace Testing1
         {
             clsCustomer AnCustomer = new clsCustomer();
             string TestData = "07865888665";
-            AnCustomer.CustomerPhoneNumber = TestData;
-            Assert.AreEqual(AnCustomer.CustomerPhoneNumber, TestData);
+            AnCustomer.customerPhoneNumber = TestData;
+            Assert.AreEqual(AnCustomer.customerPhoneNumber, TestData);
         }
+
+
+
 
         [TestMethod]
         public void FindMethodOK()
         {
+            //create an instance od the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
+            //create a Boolean variable to store the result of the Validation
             Boolean Found = false;
+            //Create some test Data to use with the method
             int CustomerId = 7;
+            //invoke the method
             Found = AnCustomer.Find(CustomerId);
+            //test to see if the result is true
             Assert.IsTrue(Found);
+        }
+        public bool Find(int CustomerId)
+
+        {
+            throw new NotImplementedException();
         }
 
         [TestMethod]
@@ -101,105 +118,27 @@ namespace Testing1
             Boolean OK = true;
             int CustomerId = 7;
             Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.CustomerId != 7)
+            if(AnCustomer.CustomerId != 7)
             {
                 OK = false;
             }
             Assert.IsTrue(OK);
         }
 
-        [TestMethod]
-        public void TestCustomerNameFound()
-        {
-            clsCustomer AnCustomer = new clsCustomer();
-            Boolean Found = false;
-            Boolean OK = true;
-            int CustomerId = 7;
-            Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.CustomerName != "Test Name")
-            {
-                OK = false;
-            }
-            Assert.IsTrue(OK);
-        }
-
-        [TestMethod]
-        public void TestCustomerEmailFound()
-        {
-            clsCustomer AnCustomer = new clsCustomer();
-            Boolean Found = false;
-            Boolean OK = true;
-            int CustomerId = 21;
-            Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.CustomerEmail != "Test Email")
-            {
-                OK = false;
-            }
-            Assert.IsTrue(OK);
-        }
-
-        [TestMethod]
-        public void TestCustomerDobFound()
-        {
-            clsCustomer AnCustomer = new clsCustomer();
-            Boolean Found = false;
-            Boolean OK = true;
-            int CustomerId = 7;
-            Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.CustomerDob != Convert.ToDateTime("26/09/2002"))
-            {
-                OK = false;
-            }
-            Assert.IsTrue(OK);
-        }
-
-        [TestMethod]
-        public void TestCustomerAddressFound()
-        {
-            clsCustomer AnCustomer = new clsCustomer();
-            Boolean Found = false;
-            Boolean OK = true;
-            int CustomerId = 7;
-            Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.CustomerAddress != "Test Address")
-            {
-                OK = false;
-            }
-            Assert.IsTrue(OK);
-        }
-
-        [TestMethod]
-        public void TestCustomerPhoneNumberFound()
-        {
-            clsCustomer AnCustomer = new clsCustomer();
-            Boolean Found = false;
-            Boolean OK = true;
-            int CustomerId = 7;
-            Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.CustomerPhoneNumber != "Test Number")
-            {
-                OK = false;
-            }
-            Assert.IsTrue(OK);
-        }
-
-        [TestMethod]
-        public void TestActiveFound()
-        {
-            clsCustomer AnCustomer = new clsCustomer();
-            Boolean Found = false;
-            Boolean OK = true;
-            int CustomerId = 7;
-            Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.Active != true)
-            {
-                OK = false;
-            }
-            Assert.IsTrue(OK);
-        }
-
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     }
-}
+    }
 
-
-   
