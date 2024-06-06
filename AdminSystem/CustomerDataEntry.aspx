@@ -10,6 +10,8 @@
     <form id="form1" runat="server">
         <div>
             <asp:Label ID="lblCustomerId" runat="server" Text="ID" width="136px"></asp:Label>&nbsp;&nbsp; <asp:TextBox runat="server" ID="txtCustomerId" height="28px" width="152px"></asp:TextBox>
+            &nbsp;&nbsp;
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="height: 26px" Text="Find" />
             <br />
         </div>
         <div>
@@ -36,14 +38,16 @@
         <asp:TextBox ID="txtCustomerAddress" runat="server" height="28px" width="152px"></asp:TextBox>
         <br />
         <br />
+        <asp:Label ID="lblError" runat="server"></asp:Label>
         <br />
-        <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="width: 33px" Text="OK" />
+        <br />
+        <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="width: 33px; height: 26px;" Text="OK" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+        <asp:Button ID="btnCancel" runat="server" Text="Cancel"/>
         <br />
         <br />
         <br />
-        <asp:CheckBox ID="chkActive" runat="server" Text="Active" />
+       
     </form>
 </body>
 </html>
