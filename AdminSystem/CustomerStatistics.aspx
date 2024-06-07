@@ -12,7 +12,7 @@
             STATISTICS PAGE</div>
         <br />
         Customer List - Grouped by Email<br />
-        <asp:GridView ID="GridViewStGroupByEmail" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridViewStGroupByEmail_SelectedIndexChanged">
+        <asp:GridView ID="GridViewStGroupByEmail" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -28,7 +28,7 @@
         <br />
         Customer List - Grouped by Date of Birth
         <asp:Button runat="server" Text="Return To Previous Page" OnClick="Unnamed1_Click" ID="btnReturn"></asp:Button><br />
-        <asp:GridView ID="GridViewStGroupByDob" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridViewStGroupByDob_SelectedIndexChanged">
+        <asp:GridView ID="GridViewStGroupByDob" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

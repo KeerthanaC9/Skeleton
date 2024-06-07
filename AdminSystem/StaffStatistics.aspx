@@ -12,7 +12,7 @@
         </div>
         <asp:Label ID="lblStTitle" runat="server" Font-Size="X-Large" style="z-index: 1; left: 30px; top: 52px; position: absolute" Text="Statistics Page"></asp:Label>
         <asp:Label ID="lblStStaffSalary" runat="server" style="z-index: 1; left: 40px; top: 112px; position: absolute" Text="Staff List - Grouped By Staff Salary"></asp:Label>
-        <asp:GridView ID="GridViewStGroupBySalary" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" style="z-index: 1; left: 30px; top: 152px; position: absolute; height: 180px; width: 289px" OnSelectedIndexChanged="GridViewStGroupBySalary_SelectedIndexChanged">
+        <asp:GridView ID="GridViewStGroupBySalary" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" style="z-index: 1; left: 30px; top: 152px; position: absolute; height: 180px; width: 289px">
             <AlternatingRowStyle BackColor="#DCDCDC" />
             <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
             <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />

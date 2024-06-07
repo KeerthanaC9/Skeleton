@@ -29,9 +29,6 @@ public partial class CustomerStatistics : System.Web.UI.Page
     {
         Response.Redirect("CustomerList.aspx");
     }
-    protected void GridViewStGroupByEmail_SelectedIndexChanged()
-    { }
-   protected void GridViewStGroupByDob_SelectedIndexChanged()
-    { }
+   
 
 }
