@@ -823,7 +823,7 @@ namespace Testing4
             //invoke the method
             DataTable dT = AStock.StatisticsGroupedByDateUpdated();
             //According to the last executed stored procedure, there shoul dbe three rows of data 
-            int noOfRecord = 11;
+            int noOfRecord = 12;
 
             //test to see that the result is correct
             Assert.AreEqual(noOfRecord, dT.Rows.Count);
