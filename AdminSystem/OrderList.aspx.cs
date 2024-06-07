@@ -23,7 +23,7 @@ public partial class _1_List : System.Web.UI.Page
         clsOrderCollection Orders = new clsOrderCollection();
         lstOrderList.DataSource = Orders.OrderList;
         lstOrderList.DataValueField = "OrderId";
-        lstOrderList.DataTextField = "OrderEmail";
+        lstOrderList.DataTextField = "OrderDate";
         lstOrderList.DataBind();
     }
 
