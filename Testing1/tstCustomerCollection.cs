@@ -159,11 +159,11 @@ namespace Testing1
             FilteredCustomers.ReportByCustomerEmail("xxx");
             if (FilteredCustomers.Count == 2)
             {
-                if (FilteredCustomers.CustomerList[0].CustomerId != 149)
+                if (FilteredCustomers.CustomerList[0].CustomerId != 310)
                 {
                     OK = false;
                 }
-                if (FilteredCustomers.CustomerList[1].CustomerId !=150)
+                if (FilteredCustomers.CustomerList[1].CustomerId !=311)
                 {
                     OK = false;
                 }
