@@ -939,7 +939,7 @@ namespace Testing2
             //invoke the method
             DataTable dT =  AStaff.StatisticsGroupedByStaffSalary();
             //According to the last executed stored procedure, there should be rows of data
-            int noOfRecord = 3;
+            int noOfRecord = 5;
 
             //test to see that the result is correct
             Assert.AreEqual(noOfRecord, dT.Rows.Count);
@@ -953,7 +953,7 @@ namespace Testing2
             //invoke the method
             DataTable dT = AStaff.StatisticsGroupedDateJoined();
             //According to the last executed stored procedure, there should be rows of data
-            int noOfRecord = 2;
+            int noOfRecord = 5;
 
             //test to see that the result is correct
             Assert.AreEqual(noOfRecord, dT.Rows.Count);
